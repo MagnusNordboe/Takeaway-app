@@ -1,0 +1,23 @@
+{
+  "name": "local_order",
+  "version": "0.0.1",
+  "description": "Initial setup of local order app",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MagnusNordboe/Takeaway-app.git"
+  },
+  "author": "Magnus Nordbø",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/MagnusNordboe/Takeaway-app/issues"
+  },
+  "homepage": "https://github.com/MagnusNordboe/Takeaway-app#readme",
+  "dependencies": {
+    "firebase-admin": "^7.0.0"
+  }
+}
