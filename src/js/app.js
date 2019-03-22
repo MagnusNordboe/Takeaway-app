@@ -10,7 +10,6 @@ require("firebase/auth");
 require("firebase/database");
 require("firebase/firestore");
 require("firebase/functions");
-console.log('firebase import: ', firebase);
 
 
 let config = {
@@ -26,8 +25,8 @@ let config = {
   firebase.firestore.setLogLevel('debug');
   window.firebase = firebase;
   const dbConnect = require('custom');
-  window.onload = dbConnect.database();
-
+  let meny = dbConnect.magnusMeny();
+  console.log('meny log første gang ',meny);
 //import demoPlugin from 'custom/database_connection';
 
 // Import F7 Styles
@@ -40,9 +39,6 @@ import '../css/app.css';
 import cordovaApp from './cordova-app.js';
 // Import Routes
 import routes from './routes.js';
-
-///DEMO class init
-//Framework7.use(demoPlugin);
 
 var app = new Framework7({
   root: '#app', // App root element
@@ -74,7 +70,8 @@ var app = new Framework7({
           title: 'Apple iPhone X',
           description: 'Expedita sequi perferendis quod illum pariatur aliquam, alias laboriosam! Vero blanditiis placeat, mollitia necessitatibus reprehenderit. Labore dolores amet quos, accusamus earum asperiores officiis assumenda optio architecto quia neque, quae eum.'
         },
-      ]
+      ],
+      meny: meny
     };
   },
   // App root methods
