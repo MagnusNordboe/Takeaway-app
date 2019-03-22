@@ -1,8 +1,34 @@
 import $$ from 'dom7';
 import Framework7 from 'framework7/framework7.esm.bundle.js';
 
-import firebase from '../../node_modules/firebase/firebase-app.js';
-import firestore from '../../node_modules/firebase/firebase-firestore.js';
+
+
+
+  // Initialize Firebase
+const firebase = require('firebase/app');
+require("firebase/auth");
+require("firebase/database");
+require("firebase/firestore");
+require("firebase/functions");
+console.log('firebase import: ', firebase);
+
+
+let config = {
+    apiKey: "AIzaSyCzwAZsG1Kjs6vv6-d8SW3mh8BI4Bohzp4",
+    authDomain: "grimstad-takeaway.firebaseapp.com",
+    databaseURL: "https://grimstad-takeaway.firebaseio.com",
+    projectId: "grimstad-takeaway",
+    storageBucket: "grimstad-takeaway.appspot.com",
+    messagingSenderId: "232052974238"
+  };
+  let firebaseApp = firebase.initializeApp(config);
+  const db = firebase.firestore(firebaseApp);
+  firebase.firestore.setLogLevel('debug');
+  window.firebase = firebase;
+  const dbConnect = require('custom');
+  window.onload = dbConnect.database();
+
+//import demoPlugin from 'custom/database_connection';
 
 // Import F7 Styles
 import 'framework7/css/framework7.bundle.css';
@@ -14,6 +40,9 @@ import '../css/app.css';
 import cordovaApp from './cordova-app.js';
 // Import Routes
 import routes from './routes.js';
+
+///DEMO class init
+//Framework7.use(demoPlugin);
 
 var app = new Framework7({
   root: '#app', // App root element
@@ -27,6 +56,7 @@ var app = new Framework7({
         firstName: 'John',
         lastName: 'Doe',
       },
+
       // Demo products for Catalog section
       products: [
         {
@@ -52,6 +82,9 @@ var app = new Framework7({
     helloWorld: function () {
       app.dialog.alert('Hello World!');
     },
+   // firebase,
+   // firestore,
+   // db,
   },
   // App routes
   routes: routes,

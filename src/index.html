@@ -26,6 +26,10 @@
   <link rel="manifest" href="/manifest.json">
   <% } %>
   <!-- built styles file will be auto injected -->
+
+      <!-- update the version number as needed -->
+      <!-- initialize the SDK after all desired features are loaded -->
+
 </head>
 <body>
   <div id="app">
@@ -110,13 +114,13 @@
             <div class="navbar-inner">
               <div class="title">Popup</div>
               <div class="right">
-                <a href="#" class="link popup-close">Close</a>
+                <a href="#" class="link popup-close" onclick="db.getMagnusData">Close</a>
               </div>
             </div>
           </div>
           <div class="page-content">
             <div class="block">
-              <p>Popup content goes here.</p>
+              <p>Imma try to put things here baus.</p>
             </div>
           </div>
         </div>
@@ -162,22 +166,12 @@
       </div>
     </div>
   </div>
-  <script src="https://www.gstatic.com/firebasejs/5.9.0/firebase.js"></script>
 <script>
-  // Initialize Firebase
-  var config = {
-    apiKey: "AIzaSyCzwAZsG1Kjs6vv6-d8SW3mh8BI4Bohzp4",
-    authDomain: "grimstad-takeaway.firebaseapp.com",
-    databaseURL: "https://grimstad-takeaway.firebaseio.com",
-    projectId: "grimstad-takeaway",
-    storageBucket: "grimstad-takeaway.appspot.com",
-    messagingSenderId: "232052974238"
-  };
-  firebase.initializeApp(config);
 </script>
   <% if (process.env.TARGET === 'cordova') { %>
   <script src="cordova.js"></script>
   <% } %>
+  
   <!-- built script files will be auto injected -->
 </body>
 </html>
