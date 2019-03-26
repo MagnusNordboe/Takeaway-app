@@ -1,11 +1,11 @@
 import $$ from 'dom7';
-import Framework7 from 'framework7/framework7.esm.bundle.js';
-
+import Framework7, { Template7 } from 'framework7/framework7.esm.bundle.js';
 
 
 
   // Initialize Firebase
 const firebase = require('firebase/app');
+const firebaseUI = require('firebaseui');
 require("firebase/auth");
 require("firebase/database");
 require("firebase/firestore");
@@ -22,12 +22,8 @@ let config = {
   };
   let firebaseApp = firebase.initializeApp(config);
   const db = firebase.firestore(firebaseApp);
-  firebase.firestore.setLogLevel('debug');
   window.firebase = firebase;
-  const dbConnect = require('custom');
-  let meny = dbConnect.magnusMeny();
-  console.log('meny log første gang ',meny);
-//import demoPlugin from 'custom/database_connection';
+
 
 // Import F7 Styles
 import 'framework7/css/framework7.bundle.css';
@@ -71,7 +67,6 @@ var app = new Framework7({
           description: 'Expedita sequi perferendis quod illum pariatur aliquam, alias laboriosam! Vero blanditiis placeat, mollitia necessitatibus reprehenderit. Labore dolores amet quos, accusamus earum asperiores officiis assumenda optio architecto quia neque, quae eum.'
         },
       ],
-      meny: meny
     };
   },
   // App root methods
@@ -124,3 +119,50 @@ $$('#my-login-screen .login-button').on('click', function () {
   // Alert username and password
   app.dialog.alert('Username: ' + username + '<br>Password: ' + password);
 });
+
+
+//Event listeners. FLytt til egen modul etter hvert
+
+//Kjører når innloggingstatus endres
+firebase.auth().onAuthStateChanged(function(user){
+  if(user){
+    //Ting som skjer hvis man er logget inn
+  }
+  else{
+    //ting som skjer hvis man ikke er logget inn
+  }
+});
+
+magnusMeny();
+
+//funksjon som skal kjøres hver gang det kjøres funksjonalitet som har med bruker å gjøre. 
+function verifyUser(){
+  let user = firebase.auth().currentUser;
+  if(user){
+    return user;
+  }
+  else{
+    firebase.auth().signInAnonymously().catch(function(error){
+      console.error(error.code, error.message);
+    });
+  }
+}
+
+
+  //Funksjonalitet for å snakke med database
+  function magnusMeny(){
+    console.log("start getfromdatabase");
+    const pastaMeny = db.collection('Restauranter').doc("Magnus spiseri").collection('Menyer').where('id', '>', 0);
+    pastaMeny.get().then(function(querySnapshot) {
+        querySnapshot.docs.forEach(function(e){
+         let template = $$('#template').html();
+         let compiledTemplate = Template7.compile(template);
+         let html = compiledTemplate(e.data());
+         console.log(html);
+         document.getElementById('container').innerHTML += html;
+        });
+    }).catch(function(error) {
+        console.log("Error getting document:", error);
+    });
+}
+ 

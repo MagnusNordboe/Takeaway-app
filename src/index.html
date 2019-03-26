@@ -35,6 +35,7 @@
   <div id="app">
     <!-- Status bar overlay for fullscreen mode-->
     <div class="statusbar"></div>
+    <div id="container"></div>
     <!-- Left panel with cover effect-->
     <div class="panel panel-left panel-cover theme-dark">
       <div class="view">
@@ -105,7 +106,6 @@
       </div>
     </div>
 
-
     <!-- Popup -->
     <div class="popup" id="my-popup">
       <div class="view">
@@ -114,7 +114,7 @@
             <div class="navbar-inner">
               <div class="title">Popup</div>
               <div class="right">
-                <a href="#" class="link popup-close" onclick="db.getMagnusData">Close</a>
+                <a href="#" class="link popup-close" >Close</a>
               </div>
             </div>
           </div>
@@ -166,7 +166,12 @@
       </div>
     </div>
   </div>
-<script>
+<script id="template" type="text/html">
+  <div>
+  <h1>{{navn}}</h1>
+  <p>Beskrivelse: {{description}} </p>  
+  <p>Pris: {{pris}} kr </p>
+  </div>
 </script>
   <% if (process.env.TARGET === 'cordova') { %>
   <script src="cordova.js"></script>
