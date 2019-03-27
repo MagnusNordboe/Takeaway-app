@@ -1,5 +1,5 @@
 import $$ from 'dom7';
-import Framework7, { Template7 } from 'framework7/framework7.esm.bundle.js';
+import Framework7 from 'framework7/framework7.esm.bundle.js';
 
 
 
@@ -11,18 +11,11 @@ require("firebase/database");
 require("firebase/firestore");
 require("firebase/functions");
 
+let config = require('../config.json');
 
-let config = {
-    apiKey: "AIzaSyCzwAZsG1Kjs6vv6-d8SW3mh8BI4Bohzp4",
-    authDomain: "grimstad-takeaway.firebaseapp.com",
-    databaseURL: "https://grimstad-takeaway.firebaseio.com",
-    projectId: "grimstad-takeaway",
-    storageBucket: "grimstad-takeaway.appspot.com",
-    messagingSenderId: "232052974238"
-  };
-  let firebaseApp = firebase.initializeApp(config);
-  const db = firebase.firestore(firebaseApp);
-  window.firebase = firebase;
+let firebaseApp = firebase.initializeApp(config);
+export const db = firebase.firestore(firebaseApp);
+window.firebase = firebase;
 
 
 // Import F7 Styles
@@ -35,6 +28,8 @@ import '../css/app.css';
 import cordovaApp from './cordova-app.js';
 // Import Routes
 import routes from './routes.js';
+import { magnusMeny } from './magnusMeny';
+import {getAllRestaurants} from './magnusMeny';
 
 var app = new Framework7({
   root: '#app', // App root element
@@ -134,6 +129,7 @@ firebase.auth().onAuthStateChanged(function(user){
 });
 
 magnusMeny();
+getAllRestaurants();
 
 //funksjon som skal kjøres hver gang det kjøres funksjonalitet som har med bruker å gjøre. 
 function verifyUser(){
@@ -149,20 +145,3 @@ function verifyUser(){
 }
 
 
-  //Funksjonalitet for å snakke med database
-  function magnusMeny(){
-    console.log("start getfromdatabase");
-    const pastaMeny = db.collection('Restauranter').doc("Magnus spiseri").collection('Menyer').where('id', '>', 0);
-    pastaMeny.get().then(function(querySnapshot) {
-        querySnapshot.docs.forEach(function(e){
-         let template = $$('#template').html();
-         let compiledTemplate = Template7.compile(template);
-         let html = compiledTemplate(e.data());
-         console.log(html);
-         document.getElementById('container').innerHTML += html;
-        });
-    }).catch(function(error) {
-        console.log("Error getting document:", error);
-    });
-}
- 
