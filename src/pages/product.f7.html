@@ -8,11 +8,11 @@
             <span class="ios-only">Back</span>
           </a>
         </div>
-        <div class="title">{{product.title}}</div>
+        <div class="title">{{product.navn}}</div>
       </div>
     </div>
     <div class="page-content">
-      <div class="block-title">About {{product.title}}</div>
+      <div class="block-title">About {{product.navn}}</div>
       <div class="block block-strong">
         {{product.description}}
       </div>
@@ -24,9 +24,10 @@
     data: function () {
       var productId = this.$route.params.id;
       var currentProduct;
-      this.$root.products.forEach(function (product) {
-        if (product.id === productId) {
-          currentProduct = product;
+      this.$root.meny.forEach(function (rett) {
+        if (rett.id === productId) {
+          console.log(rett);
+          currentProduct = rett;
         }
       });
       return {

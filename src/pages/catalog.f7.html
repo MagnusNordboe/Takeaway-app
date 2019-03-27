@@ -8,8 +8,8 @@
     <div class="page-content">
       <div class="list links-list">
         <ul>
-          {{#each products}}
-            <li><a href="/product/{{id}}/">{{title}}</a></li>
+          {{#each meny}}
+            <li><a href="/product/{{id}}/">{{navn}}</a></li>
           {{/each}}
         </ul>
       </div>
@@ -21,6 +21,7 @@
     data: function () {
       return {
         products: this.$root.products,
+        meny: this.$root.meny
       };
     }
   };
