@@ -18,13 +18,16 @@ export function magnusMeny() {
   });
 }
 export function getAllRestaurants(){
-    const route = db.collection('Restauranter');
+    const route = db.collection('Restauranter').where('id','<','1');
     route.get().then(function(querySnapshot){
         let restauranter = $$('#restauranter').html();
         let compiledTemplate = Template7.compile(restauranter);
         querySnapshot.docs.forEach(function(e){
             let html = compiledTemplate(e.data());
+            console.log(html);
             document.getElementById('container').innerHTML += html;
         });
+    }).catch(function(error){
+        console.error('error i firebase getallrestaurants ', error);
     });
 }
