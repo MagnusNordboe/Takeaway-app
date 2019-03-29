@@ -28,8 +28,7 @@ import '../css/app.css';
 import cordovaApp from './cordova-app.js';
 // Import Routes
 import routes from './routes.js';
-import { magnusMeny } from './magnusMeny';
-import {getAllRestaurants} from './magnusMeny';
+import * as restaurants from './magnusMeny';
 
 var app = new Framework7({
   root: '#app', // App root element
@@ -128,20 +127,5 @@ firebase.auth().onAuthStateChanged(function(user){
   }
 });
 
-magnusMeny();
-getAllRestaurants();
-
-//funksjon som skal kjøres hver gang det kjøres funksjonalitet som har med bruker å gjøre. 
-function verifyUser(){
-  let user = firebase.auth().currentUser;
-  if(user){
-    return user;
-  }
-  else{
-    firebase.auth().signInAnonymously().catch(function(error){
-      console.error(error.code, error.message);
-    });
-  }
-}
-
+console.log(restaurants.getTakeoutMenu('Magnus spiseri'));
 
