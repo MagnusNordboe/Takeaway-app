@@ -10,11 +10,11 @@ require("firebase/auth");
 require("firebase/database");
 require("firebase/firestore");
 require("firebase/functions");
-
 let config = require('../config.json');
 
 let firebaseApp = firebase.initializeApp(config);
 export const db = firebase.firestore(firebaseApp);
+const functions = firebase.functions(firebaseApp);
 window.firebase = firebase;
 
 
@@ -29,6 +29,7 @@ import cordovaApp from './cordova-app.js';
 // Import Routes
 import routes from './routes.js';
 import * as restaurants from './magnusMeny';
+
 
 var app = new Framework7({
   root: '#app', // App root element
@@ -102,18 +103,36 @@ var app = new Framework7({
   },
 });
 
+//Gjør framework7 tilgjengelig i window
+window.app = app;
+
 // Login Screen Demo
 $$('#my-login-screen .login-button').on('click', function () {
   var username = $$('#my-login-screen [name="username"]').val();
   var password = $$('#my-login-screen [name="password"]').val();
-
+  console.log(app.data);
   // Close login screen
   app.loginScreen.close('#my-login-screen');
 
   // Alert username and password
   app.dialog.alert('Username: ' + username + '<br>Password: ' + password);
-});
 
+  let data = {
+    restaurant: 'Magnus Spiseri',
+    kategori: 'Menyer',
+    navn: 'Meme review',
+    allergener: [
+      'hvitløk',
+      'gluten'
+    ],
+    beskrivelse: 'En fiktiv rett for å teste cloud functions',
+    pris: 69
+  }
+ let addMenuItem = functions.httpsCallable('addMenuItem')
+ addMenuItem(data).then((result) =>{
+   console.log(result.data.message);
+ })
+});
 
 //Event listeners. FLytt til egen modul etter hvert
 
@@ -126,6 +145,3 @@ firebase.auth().onAuthStateChanged(function(user){
     //ting som skjer hvis man ikke er logget inn
   }
 });
-
-console.log(restaurants.getTakeoutMenu('Magnus spiseri'));
-

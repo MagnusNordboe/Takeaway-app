@@ -8,13 +8,13 @@
             <span class="ios-only">Back</span>
           </a>
         </div>
-        <div class="title">{{product.navn}}</div>
+        <div class="title">{{menu.navn}}</div>
       </div>
     </div>
     <div class="page-content">
-      <div class="block-title">About {{product.navn}}</div>
+      <div class="block-title">About {{menu.navn}}</div>
       <div class="block block-strong">
-        {{product.description}}
+        {{menu.description}}
       </div>
     </div>
   </div>
@@ -31,7 +31,7 @@
         }
       });
       return {
-        product: currentProduct,
+        menu: currentProduct,
       };
     }
   };
