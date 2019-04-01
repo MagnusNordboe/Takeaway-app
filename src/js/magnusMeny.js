@@ -1,10 +1,5 @@
-import $$ from 'dom7'; 
-import { Template7 } from 'framework7/framework7.esm.bundle.js';
-import { db } from './app';
-import { type } from 'os';
-import { app } from 'firebase';
 //Funksjonalitet for å snakke med database
-export function magnusMeny() {
+export function getMagnusMeny() {
   console.log("start getfromdatabase");
   const pastaMeny = db.collection('Restauranter').doc("Magnus spiseri").collection('Menyer').where('id', '>', 0);
   pastaMeny.get().then(function(querySnapshot){
@@ -44,8 +39,4 @@ export function getTakeoutMenu(restaurant){
     }).catch(function(error){
         console.error('error i getTakeOutMenu: ', error);
     })
-}
-
-export function addMenuItem(event){
-    console.log(event.target);
 }

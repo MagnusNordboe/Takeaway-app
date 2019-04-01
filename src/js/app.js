@@ -29,6 +29,7 @@ import cordovaApp from './cordova-app.js';
 // Import Routes
 import routes from './routes.js';
 import * as restaurants from './magnusMeny';
+import { resolve } from 'url';
 
 
 var app = new Framework7({
@@ -62,6 +63,7 @@ var app = new Framework7({
           description: 'Expedita sequi perferendis quod illum pariatur aliquam, alias laboriosam! Vero blanditiis placeat, mollitia necessitatibus reprehenderit. Labore dolores amet quos, accusamus earum asperiores officiis assumenda optio architecto quia neque, quae eum.'
         },
       ],
+      meny: null
     };
   },
   // App root methods
@@ -103,14 +105,21 @@ var app = new Framework7({
   },
 });
 
+
+//Prøver å oppdatere data element med svar fra database
+restaurants.getAllRestaurants().then((array) => {
+  app.meny = array
+});
+
+
 //Gjør framework7 tilgjengelig i window
 window.app = app;
+console.log(app.data);
 
 // Login Screen Demo
 $$('#my-login-screen .login-button').on('click', function () {
   var username = $$('#my-login-screen [name="username"]').val();
   var password = $$('#my-login-screen [name="password"]').val();
-  console.log(app.data);
   // Close login screen
   app.loginScreen.close('#my-login-screen');
 
@@ -128,10 +137,6 @@ $$('#my-login-screen .login-button').on('click', function () {
     beskrivelse: 'En fiktiv rett for å teste cloud functions',
     pris: 69
   }
- let addMenuItem = functions.httpsCallable('addMenuItem')
- addMenuItem(data).then((result) =>{
-   console.log(result.data.message);
- })
 });
 
 //Event listeners. FLytt til egen modul etter hvert
