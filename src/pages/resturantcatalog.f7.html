@@ -1,0 +1,104 @@
+<template>
+  <div class="page" data-name="resturantcatalog">
+    <div class="navbar ourthemeB">
+      <div class="navbar-inner sliding ourthemeB">
+        <div class="left">
+          <a href="#" class="link back">
+            <i class="icon icon-back"></i>
+            <span class="ios-only">Back</span>
+          </a>
+        </div>
+        <div id="restHead" class="title ourthemeB">{{resturant.title}}</div>
+      </div>
+    </div>
+    <div class="page-content ourthemeB">
+        <div style="background-image:url({{resturant.img}})" class="card-header align-items-flex-end restIMG"></div>
+      <div class="block-title">{{resturant.adresse}}</div>
+      <div class="block block-strong">
+        {{resturant.description}} {{resturant.id}}
+      </div>  <div id="biller" class="">
+
+      </div><button class="ourbutton" href="/resturantorder/{{resturant.id}}/" type="button" name="button"> Gå til ordre</button>
+<div class="list accordion-list ourthemeB">
+    <ul>
+         {{#each resturant.categorier}}
+              <li>
+    <a id="id{{catnavn}}" name="{{catnavn}}" onclick="activeCAT('{{catnavn}}',{{catid}})" href="/cat/{{catid}}/" class="item-link list-button">{{catnavn}}</a>
+
+    </li>
+    {{/each}}
+                  </ul>
+        </div>
+    </div>
+    <script type="text/javascript">
+    //  console.log(ord3rlist1);
+  //  var aktivKatt;
+    function activeCAT(cat,hound){
+      console.log(cat);
+      console.log(hound);
+      console.log(`"${cat.name}"`);
+      console.log(`${cat.name}`);
+      console.log("Creating categoryheader");
+      let link = `/cat/${hound}/`;
+    //  var aktivKa = eval(cat);
+    //  var aktivKatt = aktivKa;
+      console.log(cat);
+      console.log(link);
+    //  setTimeout(luckyS(`${cat}`), 1100);
+    //  restNavn("{{resturant.title}}");
+      //window.href = link;
+
+      var catname= `${cat}`;
+      var restname=document.getElementById("restHead").innerHTML;
+        doheaders(catname,restname);
+      console.log(catname);
+      console.log(restname);
+    }
+
+    console.log({{resturant.id}});
+    var activeResturant = {{resturant.id}};
+      console.log("hei Resturant");
+      if (!orderlist{{resturant.id}}){
+        var orderlist{{resturant.id}} = [];
+        console.log("madeODERLIST");
+      }
+ //var thevar = orderlist+{{resturant.id}}
+
+//console.log(orderlist{{resturant.id}});
+function showBill(){
+    document.getElementById("biller").innerHTML = "";
+  let theList = orderlist{{resturant.id}};
+  console.log(theList);
+  let orderSum = 0;
+  for (a=0; a<theList.length; a++){
+    let sum=theList[a][2]*theList[a][3];
+    let text = theList[a][4];
+  var element = document.createElement("div");
+  element.innerHTML = `<a> Kategori: ${theList[a][0]}   </a><a>Meny element: ${theList[a][1]}</a><a> Antall: ${theList[a][2]}</a><a>  Sum: ${sum}</a> <p>Information:  ${text}</p>`;
+  orderSum+=sum;
+  document.getElementById("biller").appendChild(element);
+}
+let totalSum = document.createElement("div");
+totalSum.innerHTML = `Total: ${orderSum}`;
+  document.getElementById("biller").appendChild(totalSum);
+}
+showBill();
+    </script>
+  </div>
+</template>
+<script>
+  export default {
+    data: function () {
+      var resturantId = this.$route.params.id;
+      var currentResturant;
+      this.$root.resturants.forEach(function (resturant) {
+        if (resturant.id === resturantId) {
+          currentResturant = resturant;
+        }
+      });
+      return {
+        resturant: currentResturant,
+      };
+    }
+  };
+</script>

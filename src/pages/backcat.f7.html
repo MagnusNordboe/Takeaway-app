@@ -1,0 +1,161 @@
+<template>
+  <div class="page" data-name="product">
+    <div class="navbar">
+      <div class="navbar-inner sliding">
+        <div class="left">
+          <a href="#" class="link back">
+            <i class="icon icon-back"></i>
+            <span class="ios-only">Baaaaaaaaack</span>
+          </a>
+        </div>
+        <div class="title">Edit category: {{cat.id}} </div>
+      </div>
+    </div>
+    <div class="page-content">
+      <div class="block-title" id="myheader" ></div>
+<div class="list accordion-list">
+  <ul>
+      {{#each cat.meny}}
+      <div><a id="bi{{rettID}}"></a><a  name="0" class="thisclass hide" id="B{{rettID}}"></a>
+      </div>
+      <li class="accordion-item"> <a  class="item-content item-link">
+             <div class="item-inner">
+               <div class="item-title">{{navn}}</div>
+
+             </div></a>
+           <div class="accordion-item-content">
+             <div class="block">
+               <p>Pris: {{prisw}}<p></p> <p> {{besk}}</p>
+               <div class="buyBTNS">
+                 <input id="K{{rettID}}" type="number" name="quantity" min="1" max="99">
+                 <textarea id="T{{rettID}}" name="name" rows="3" cols="20" placeholder="Ekstra infromsasjon"></textarea>
+                 <button id="Btn" onclick="addToOrder({{rettID}},{{prisw}})" type="button" name="button">Legg til i bestilling</button>
+               </div>
+             </div>
+           </div>
+         </li>
+
+{{/each}}
+</ul>
+</div>
+    </div>
+    <script type="text/javascript">
+    //  alert('here am i');
+//  document.onload=luckyS();
+  function luckyS (aa){
+document.getElementById("myheader").innerHTML = aa;
+//console.log(aktivKatt);
+console.log(aa);
+console.log("Did header name");
+}
+  // console.log(eval("orderlist"+activeResturant));
+   if (activeResturant){
+amountInOrder();
+   }
+function amountInOrder(){
+
+  var x = document.getElementsByClassName("thisclass");
+var i;
+for (i = 0; i < x.length; i++) {
+  x[i].name= 0;
+  }
+  var thevar = "orderlist"+activeResturant;
+  console.log("acmy nue FUNK onload");
+     console.log(eval(thevar));
+     let myPicks = eval(thevar);
+ myPicks.forEach(fillList);
+
+
+}
+   function fillList(list){
+     console.log(list[1]);
+     if (list[2]>0){
+       console.log("iwuz here");
+       document.getElementById(eval(`"B${list[1]}"`)).classList.remove("hide");
+     let mediumVal = document.getElementById(eval(`"B${list[1]}"`)).name;
+     console.log(mediumVal);
+     let calcVal = parseInt(mediumVal);
+     let newVal = calcVal + list[2];
+     console.log(newVal);
+     document.getElementById(eval(`"B${list[1]}"`)).name = newVal;
+document.getElementById(eval(`"B${list[1]}"`)).innerHTML = newVal;
+document.getElementById(eval(`"bi${list[1]}"`)).innerHTML= " Antall i bestilling:  ";
+}
+//document.getElementById(eval(`"bi${list[1]}"`)).classList.remove(hide);
+   }
+
+
+//console.log({{cat[0]}});
+//var orderlist= [];
+var ord3rlist{{hat}}= "the super var is here";
+      function addToOrder(info,pris){
+        console.log("011called");
+        console.log(activeResturant+'active');
+      //  alert({{cat}});
+        console.log(info);
+        let verdia = document.getElementById('K'+info).value;
+        let bTekst = document.getElementById('T'+info).value;
+        console.log(bTekst);
+        let verdi = parseInt(verdia);
+      console.log(verdi);
+      let myHat = {{hat}};
+      console.log(myHat+"her er asdasdasdsa");
+      let orderLine = [myHat,info,verdi,pris,bTekst];
+var thevar = "orderlist"+activeResturant;
+console.log(eval(thevar));
+//console.log(thevar);
+//console.log(orderlist+activeResturant);
+      eval("orderlist"+activeResturant).push(orderLine);
+    /*  let myPicks = eval(thevar);
+      document.getElementsByClassName("thisclass").name = "0";
+      myPicks.forEach(fillList);*/
+      amountInOrder();
+      }
+    </script>
+    <script src="myJS.js" charset="utf-8"></script>
+    <script src="../js/online.js" charset="utf-8"></script>
+  </div>
+</template>
+<script>
+  export default {
+    data: function () {
+      var catiId = this.$route.params.id;
+      var currentMeny;
+      this.$root.menye.forEach(function (menye) {
+        if (menye.id === catiId) {
+          currentMeny = menye;
+        }
+      });
+      return {
+        cat: currentMeny,
+        hat: currentMeny.id,
+      };
+    }
+  };
+
+  /* import * as javacode from '../js/online.js';
+  export default {
+    data: function () {
+        var id = this.$route.params.id;
+      return {
+        cat: this.$root.categori+id,
+      };
+    }
+  };
+
+  export default {
+    data: function () {
+      var Id = this.$route.params.id;
+      var currentResturant;
+      this.$root.categori+Id.forEach(function (resturant) {
+        if (resturant.id === resturantId) {
+          currentResturant = resturant;
+        }
+      });
+      return {
+        cat: currentResturant.categorier,
+      };
+    }
+  };*/
+
+</script>

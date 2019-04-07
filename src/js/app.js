@@ -1,23 +1,8 @@
 import $$ from 'dom7';
 import Framework7 from 'framework7/framework7.esm.bundle.js';
 
-
-
-  // Initialize Firebase
-const firebase = require('firebase/app');
-const firebaseUI = require('firebaseui');
-require("firebase/auth");
-require("firebase/database");
-require("firebase/firestore");
-require("firebase/functions");
-let config = require('../config.json');
-
-let firebaseApp = firebase.initializeApp(config);
-export const db = firebase.firestore(firebaseApp);
-const functions = firebase.functions(firebaseApp);
-window.firebase = firebase;
-
-
+import * as database from './database';
+import {db} from './database';
 // Import F7 Styles
 import 'framework7/css/framework7.bundle.css';
 
@@ -28,11 +13,28 @@ import '../css/app.css';
 import cordovaApp from './cordova-app.js';
 // Import Routes
 import routes from './routes.js';
-import * as restaurants from './magnusMeny';
-import { resolve } from 'url';
+
+//Prepare for framework7 init
+var app;
 
 
-var app = new Framework7({
+//Sjekk om localstorage allerede har listen over restauranter
+if(window.localStorage.getItem('restaurants')){
+  let restaurants = JSON.parse(window.localStorage.getItem('restaurants'));
+  initializeFramework7(restaurants);
+}
+else{
+  database.getAllRestaurants().then((array) => {
+    initializeFramework7(array);
+    let restaurants = JSON.stringify(array);
+    window.localStorage.setItem('restaurants', restaurants);
+  })
+}
+
+
+
+function initializeFramework7(restaurants){
+  app = new Framework7({
   root: '#app', // App root element
   id: 'io.localorder.app', // App bundle ID
   name: 'Local Order', // App name
@@ -40,6 +42,224 @@ var app = new Framework7({
   // App root data
   data: function () {
     return {
+      menye: [{
+        id: '31',
+        meny: [{
+          rettID: '1',
+          navn: "Flying fish",
+          besk: "digg burger, supergod snerr liom",
+          prisw: '100'
+        }, {
+          rettID: '2',
+          navn: "Fly fish",
+          besk: '"digg burg122222222222222222222supergod snerr liom"',
+          prisw: '120'
+        }, {
+          rettID: '3',
+          navn: "Catch and release",
+          besk: '"digg 33333333333burger, supergod snerr liom"',
+          prisw: '140'
+        }, {
+          rettID: '4',
+          navn: '"Glipper"',
+          besk: '"di44444g burger, supergod snerr liom"',
+          prisw: '150'
+        },
+        ],
+      }, {
+        id: '32',
+        meny: [{
+          rettID: '1',
+          navn: "Pizzarg",
+          besk: "digg burger, supergod snerr liom",
+          prisw: '100'
+        }, {
+          rettID: '2',
+          navn: "Pinabble",
+          besk: '"digg burg122222222222222222222supergod snerr liom"',
+          prisw: '120'
+        }, {
+          rettID: '3',
+          navn: "sjoritsto",
+          besk: '"digg 33333333333burger, supergod snerr liom"',
+          prisw: '140'
+        }, {
+          rettID: '4',
+          navn: "oppkuttet vegetarianer",
+          besk: '"di44444g burger, supergod snerr liom"',
+          prisw: '150'
+        },
+        ],
+      }, {
+        id: '33',
+        meny: [{
+          rettID: '1',
+          navn: "BrugBurg",
+          besk: "digg burger, supergod snerr liom",
+          prisw: '100'
+        }, {
+          rettID: '2',
+          navn: "Basdasdg",
+          besk: '"digg burg122222222222222222222supergod snerr liom"',
+          prisw: '120'
+        }, {
+          rettID: '3',
+          navn: "Bruger HEEY",
+          besk: '"digg 33333333333burger, supergod snerr liom"',
+          prisw: '140'
+        }, {
+          rettID: '4',
+          navn: "Pizza Burger",
+          besk: '"di44444g burger, supergod snerr liom"',
+          prisw: '150'
+        },
+        ],
+      }, {
+        id: '35',
+        meny: [{
+          rettID: '1',
+          navn: "brennevin",
+          besk: "digg burger, supergod snerr liom",
+          prisw: '100'
+        }, {
+          rettID: '2',
+          navn: "konjakk",
+          besk: '"digg burg122222222222222222222supergod snerr liom"',
+          prisw: '120'
+        }, {
+          rettID: '3',
+          navn: "vodka",
+          besk: '"digg 33333333333burger, supergod snerr liom"',
+          prisw: '140'
+        }, {
+          rettID: '4',
+          navn: "liquer",
+          besk: '"di44444g burger, supergod snerr liom"',
+          prisw: '150'
+        },
+        ],
+      }, {
+        id: '34',
+        meny: [{
+          rettID: '1',
+          navn: "Brug2Burg",
+          besk: "digg burger, supergod snerr liom",
+          prisw: '100'
+        }, {
+          rettID: '2',
+          navn: "Basda2sdg",
+          besk: '"digg burg122222222222222222222supergod snerr liom"',
+          prisw: '120'
+        }, {
+          rettID: '3',
+          navn: "Bruger222 HEEY",
+          besk: '"digg 33333333333burger, supergod snerr liom"',
+          prisw: '140'
+        }, {
+          rettID: '4',
+          navn: "Pizza22222 Burger",
+          besk: '"di44444g burger, supergod snerr liom"',
+          prisw: '150'
+        },
+        ],
+      }, {
+        id: '41',
+        meny: [{
+          rettID: '1',
+          navn: "leverpostei",
+          besk: "digg burger, supergod snerr liom",
+          prisw: '100'
+        }, {
+          rettID: '2',
+          navn: "ostepopp",
+          besk: '"digg burg122222222222222222222supergod snerr liom"',
+          prisw: '120'
+        }, {
+          rettID: '3',
+          navn: "grønsaker",
+          besk: '"digg 33333333333burger, supergod snerr liom"',
+          prisw: '140'
+        }, {
+          rettID: '4',
+          navn: '"føtter"',
+          besk: '"di44444g burger, supergod snerr liom"',
+          prisw: '150'
+        },
+        ],
+      }, {
+        id: '42',
+        meny: [{
+          rettID: '1',
+          navn: "Pizzarg",
+          besk: "digg burger, supergod snerr liom",
+          prisw: '100'
+        }, {
+          rettID: '2',
+          navn: "Pinabble",
+          besk: '"digg burg122222222222222222222supergod snerr liom"',
+          prisw: '120'
+        }, {
+          rettID: '3',
+          navn: "sjoritsto",
+          besk: '"digg 33333333333burger, supergod snerr liom"',
+          prisw: '140'
+        }, {
+          rettID: '4',
+          navn: "oppkuttet vegetarianer",
+          besk: '"di44444g burger, supergod snerr liom"',
+          prisw: '150'
+        },
+        ],
+      }, {
+        id: '43',
+        meny: [{
+          rettID: '1',
+          navn: "BrugBurg",
+          besk: "digg burger, supergod snerr liom",
+          prisw: '100'
+        }, {
+          rettID: '2',
+          navn: "Basdasdg",
+          besk: '"digg burg122222222222222222222supergod snerr liom"',
+          prisw: '120'
+        }, {
+          rettID: '3',
+          navn: "Bruger HEEY",
+          besk: '"digg 33333333333burger, supergod snerr liom"',
+          prisw: '140'
+        }, {
+          rettID: '4',
+          navn: "Pizza Burger",
+          besk: '"di44444g burger, supergod snerr liom"',
+          prisw: '150'
+        },
+        ],
+      }, {
+        id: '44',
+        meny: [{
+          rettID: '1',
+          navn: "br33ennevin",
+          besk: "digg burger, supergod snerr liom",
+          prisw: '100'
+        }, {
+          rettID: '2',
+          navn: "kon33jakk",
+          besk: '"digg burg122222222222222222222supergod snerr liom"',
+          prisw: '120'
+        }, {
+          rettID: '3',
+          navn: "vod33ka",
+          besk: '"digg 33333333333burger, supergod snerr liom"',
+          prisw: '140'
+        }, {
+          rettID: '4',
+          navn: "lique33r",
+          besk: '"di44444g burger, supergod snerr liom"',
+          prisw: '150'
+        },
+        ],
+      },],
+
       user: {
         firstName: 'John',
         lastName: 'Doe',
@@ -63,7 +283,114 @@ var app = new Framework7({
           description: 'Expedita sequi perferendis quod illum pariatur aliquam, alias laboriosam! Vero blanditiis placeat, mollitia necessitatibus reprehenderit. Labore dolores amet quos, accusamus earum asperiores officiis assumenda optio architecto quia neque, quae eum.'
         },
       ],
-      meny: null
+      meny: null,
+      realRestaurants: restaurants,
+      resturants: [
+        {
+          id: '1',
+          title: 'Burger 1 sjappa ',
+          img: 'https://www.tynker.com/projects/screenshot/5c3ca926b7ccdd0e6220eadd/smiol.png',
+          description: 'Grimstad A yeah thats a sted.',
+          shortdescription: 'Grimstad A yeah thats a sted.',
+          adresse: 'Sentrum 4 48179'
+        },
+        {
+          id: '2',
+          title: 'Pizza 1 stedet',
+          img: 'https://www.tynker.com/projects/screenshot/5c3ca926b7ccdd0e6220eadd/smiol.png',
+          description: 'Velit odit autem modi saepe ratione totam minus, aperiam, labore quia provident temporibus quasi est ut aliquid blanditiis beatae suscipit odio vel! Nostrum porro sunt sint eveniet maiores, dolorem itaque!',
+          shortdescription: 'Grimstad  you seeA yeah thats a sted.',
+          adresse: 'Sentrum 4 48179'
+        },
+        {
+          id: '3',
+          title: 'Pizza 2 resturanten',
+          img: 'https://www.tynker.com/projects/screenshot/5c3ca926b7ccdd0e6220eadd/smiol.png',
+          description: 'Expedita sequi perferendis quod illum pariatur aliquam, alias laboriosam! Vero blanditiis placeat, mollitia necessitatibus reprehenderit. Labore dolores amet quos, accusamus earum asperiores officiis assumenda optio architecto quia neque, quae eum.',
+          adresse: 'Sentrum 4 48179',
+          shortdescription: 'Gradd maxleght to this field',
+          categorier: [{
+            catid: '31',
+            catnavn: "Sushy",
+
+          },
+          {
+            catnavn: "Whoak",
+            catid: '32',
+
+          },
+          {
+            catnavn: "SpringRoll",
+            catid: '33',
+          },
+          {
+            catnavn: "Take away desserts",
+            catid: '34',
+          },
+          {
+            catnavn: "Drink and dirty",
+            catid: '35',
+          }
+          ]
+        },
+        {
+          id: '4',
+          title: 'Pizza 3 serveringsted',
+          img: 'https://www.tynker.com/projects/screenshot/5c3ca926b7ccdd0e6220eadd/smiol.png',
+          description: 'Expedita sequi perferendis quod illum pariatur aliquam, alias laboriosam! Vero blanditiis placeat, mollitia necessitatibus reprehenderit. Labore dolores amet quos, accusamus earum asperiores officiis assumenda optio architecto quia neque, quae eum.',
+          adresse: 'Sentrum 4 48179',
+          shortdescription: 'Short description.',
+          categorier: [{
+            catid: '41',
+            catnavn: "burgere",
+
+          },
+          {
+            catnavn: "Pizza",
+            catid: '42',
+
+          },
+          {
+            catnavn: "mat",
+            catid: '43',
+          },
+          {
+            catnavn: "drikke",
+            catid: '44',
+          }
+          ]
+        },
+        {
+          id: '5',
+          title: 'Burger 2 inntak plassering',
+          img: 'https://www.tynker.com/projects/screenshot/5c3ca926b7ccdd0e6220eadd/smiol.png',
+          description: 'Expedita sequi perferendis quod illum pariatur aliquam, alias laboriosam! Vero blanditiis placeat, mollitia necessitatibus reprehenderit. Labore dolores amet quos, accusamus earum asperiores officiis assumenda optio architecto quia neque, quae eum.',
+          adresse: 'Sentrum 4 48179',
+          retter: [{
+            rettID: `'1'`,
+            navn: "BrudasdasdBurg",
+            besk: `"digg dasbasdasurger, supergod snerr liom"`,
+            prisw: '130'
+          }, {
+            rettID: `'2'`,
+            navn: "xcvxcvbxcvbxcvzxcvxcvxcvg",
+            besk: `'"dasdsadasdsadasdas snerr liom"'`,
+            prisw: '120'
+          }, {
+            rettID: `'3'`,
+            navn: "werwr4334t34EEY",
+            besk: `'"digg 33333333333burger, supergod snerr liom"'`,
+            prisw: '140'
+          }, {
+            rettID: `'4'`,
+            navn: "Pizza 2343242342342342342342342342343242342er",
+            besk: `'"di44444g burger, supergod snerr liom"'`,
+            prisw: '150'
+          }
+          ]
+        }
+      ]
+
     };
   },
   // App root methods
@@ -104,13 +431,7 @@ var app = new Framework7({
     },
   },
 });
-
-
-//Prøver å oppdatere data element med svar fra database
-restaurants.getAllRestaurants().then((array) => {
-  app.meny = array
-});
-
+}
 
 //Gjør framework7 tilgjengelig i window
 window.app = app;
@@ -125,28 +446,5 @@ $$('#my-login-screen .login-button').on('click', function () {
 
   // Alert username and password
   app.dialog.alert('Username: ' + username + '<br>Password: ' + password);
-
-  let data = {
-    restaurant: 'Magnus Spiseri',
-    kategori: 'Menyer',
-    navn: 'Meme review',
-    allergener: [
-      'hvitløk',
-      'gluten'
-    ],
-    beskrivelse: 'En fiktiv rett for å teste cloud functions',
-    pris: 69
-  }
 });
 
-//Event listeners. FLytt til egen modul etter hvert
-
-//Kjører når innloggingstatus endres
-firebase.auth().onAuthStateChanged(function(user){
-  if(user){
-    //Ting som skjer hvis man er logget inn
-  }
-  else{
-    //ting som skjer hvis man ikke er logget inn
-  }
-});

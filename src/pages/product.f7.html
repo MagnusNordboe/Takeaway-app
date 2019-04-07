@@ -8,13 +8,13 @@
             <span class="ios-only">Back</span>
           </a>
         </div>
-        <div class="title">{{menu.navn}}</div>
+        <div class="title">{{product.title}}</div>
       </div>
     </div>
     <div class="page-content">
-      <div class="block-title">About {{menu.navn}}</div>
+      <div class="block-title">About {{product.title}}</div>
       <div class="block block-strong">
-        {{menu.description}}
+        {{product.description}}
       </div>
     </div>
   </div>
@@ -24,14 +24,13 @@
     data: function () {
       var productId = this.$route.params.id;
       var currentProduct;
-      this.$root.meny.forEach(function (rett) {
-        if (rett.id === productId) {
-          console.log(rett);
-          currentProduct = rett;
+      this.$root.products.forEach(function (product) {
+        if (product.id === productId) {
+          currentProduct = product;
         }
       });
       return {
-        menu: currentProduct,
+        product: currentProduct,
       };
     }
   };

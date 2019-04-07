@@ -1,0 +1,186 @@
+<template>
+  <div class="page" data-name="backendresturant">
+    <div class="navbar">
+      <div class="navbar-inner sliding">
+        <div class="left">
+          <a href="#" class="link back">
+            <i class="icon icon-back"></i>
+            <span class="ios-only">Back</span>
+          </a>
+        </div>
+        <div class="title"><b>{{resturant.title}}</b></div>
+      </div>
+    </div>
+    <div class="page-content">
+        <div style="background-image:url({{resturant.img}})" class="card-header align-items-flex-end"></div>
+      <div class="block-title"><b>{{resturant.title}}</b></div>
+      <div class="block block-strong accordion-item">
+        <a class="accordion-item-toggle" ><b>Rediger tekst</b></a>
+        <div class="accordion-item-content">
+
+        <label for="titlefield"><b>Resturantnavn:</b> </label>
+        <input id="titlefield item-input" type="text" name="" placeholder="{{resturant.title}}" value="{{resturant.title}}">
+        <label for="imgfield"><b>Bilde:</b> </label>
+        <input id="imgfield item-input" type="text" name="" placeholder="{{resturant.img}}" value="{{resturant.img}}">
+          <label for="B{{resturant.id}}"><b>Beskrivelse:</b></label>
+      <textarea id="B{{resturant.id}}" name="name" rows="3" cols="60" placeholder="{{resturant.description}}">{{resturant.description}}</textarea>
+        <label for="A{{resturant.id}}"><b>Adresse:</b></label>
+        <textarea id="A{{resturant.id}}" name="name" rows="2" cols="40" placeholder="{{resturant.adresse}}">{{resturant.adresse}}</textarea>
+
+      <hr>
+      <button id="newIbtn" onclick="sayhi({{resturant.id}})" type="button" name="button"> Lagre endriger</button> <div id="hellofield" class="">
+</div>
+     </div>
+          </div>
+          <div id="newcategory" class="accordion-item">
+<div class="accordion-item-toggle">
+  <div class="item-media"><i class="icon icon-f7"></i></div>
+  <div class="item-inner">
+    <div class="item-title"><b>Legg til kategori</b></div>
+  </div>
+</div>
+<div class="accordion-item-content">
+  <label for="newcatfield"><b>Skriv navn: </b></label>
+  <input id="newcatfield" type="text" name="" placeholder="Ny Kategori">
+  <button id="newCatbtn" class="accordion-item-toggle" onclick="newCAT()"  type="button" name="button"> Legg til</button>
+
+</div>
+          </div>
+
+<div class="list">
+    <ul id="categoryLIST">
+         {{#each resturant.categorier}}
+         <li>
+  <a  href="/backcat/{{catid}}/" id="{{catnavn}}" onclick="activeCAT({{catnavn}},{{catid}})"  class="item-content">
+    <div class="item-media"><i class="icon icon-f7"></i></div>
+    <div class="item-inner">
+      <div class="item-title">{{catnavn}}</div>
+    </div>
+  </a>
+</li>
+
+    {{/each}}
+                  </ul>
+        </div>
+        <div>
+        <button onclick="showBill()" type="button" name="button"> Activate biller</button> <div id="biller" class="">
+
+       </div>
+    </div>
+    </div>
+    <script type="text/javascript">
+    //  console.log(ord3rlist1);
+  //  var aktivKatt;
+  function newCAT(){
+    console.log("newcat");
+    let newc=document.getElementById("newcatfield");
+    console.log(newc);
+let addC = document.createElement("li");
+addC.innerHTML = `
+<a  href="/backcat/new/" id="123" onclick="activeCAT(new,22)"  class="item-content">
+<div class="item-media"><i class="icon icon-f7"></i></div>
+<div class="item-inner">
+<div class="item-title">${newc.value}</div>
+</div>
+</a>`;
+    document.getElementById("categoryLIST").appendChild(addC);
+    document.getElementById("newcategory").classList.remove("accordion-item-opened");
+  }
+  function hay(){
+    console.log("haaaaaaay");
+  }
+  document.getElementById("newIbtn").addEventListener("click", hay);
+  function sayhi(a){
+    console.log("sayhi              HI");
+    console.log(a);
+    let thest = eval("B"+a);
+    console.log(thest);
+        console.log(thest.placeholder);
+    let newB = (eval("B"+a));
+    let newA = (eval("A"+a));
+    console.log(newB);
+    console.log(newA);
+    let changes = "Changes: ";
+let rTitle = document.getElementById("titlefield");
+let rImg = document.getElementById("imgfield");
+if (rImg.value !== rImg.placeholder){
+  console.log("img");
+  changes += rImg.value;
+}
+    let oldB = `{{resturant.description}}`;
+      let oldA = `{{resturant.adresse}}`;
+    if (newB.value !== newB.placeholder){
+      console.log("new Description");
+      console.log(newB.value);
+      changes += newB.value;
+    }
+    if (newA.value !== newA.placeholder){
+      console.log("new Adresse");
+changes += newA.value;
+    }
+    if (rTitle.value !== rTitle.placeholder){
+      console.log("title");
+      changes += rTitle.value;
+    }
+    alert(changes)
+  }
+    function activeCAT(cat,hound){
+      console.log(cat);
+      console.log(hound);
+      console.log("Creating categoryheader");
+      let link = `/cat/${hound}/`;
+      var aktivKa = cat.id;
+      var aktivKatt = aktivKa;
+      console.log(aktivKatt);
+      console.log(link);
+     luckyS(aktivKatt);
+  //  document.href = link;
+    //console.log("lyn22k");
+    //cat.click();
+    }
+
+    console.log({{resturant.id}});
+    var activeResturant = {{resturant.id}};
+      console.log("hei Resturant");
+      if (!orderlist{{resturant.id}}){
+        var orderlist{{resturant.id}} = [];
+        console.log("madeODERLIST");
+      }
+ //var thevar = orderlist+{{resturant.id}}
+
+//console.log(orderlist{{resturant.id}});
+function showBill(){
+  let theList = orderlist{{resturant.id}};
+  console.log(theList);
+  let orderSum = 0;
+  for (a=0; a<theList.length; a++){
+    let sum=theList[a][2]*theList[a][3];
+    let text = theList[a][4];
+  var element = document.createElement("div");
+  element.innerHTML = `<a> Kategori: ${theList[a][0]}   </a><a>Meny element: ${theList[a][1]}</a><a> Antall: ${theList[a][2]}</a><a>  Sum: ${sum}</a> <p>Information:  ${text}</p>`;
+  orderSum+=sum;
+  document.getElementById("biller").appendChild(element);
+}
+let totalSum = document.createElement("div");
+totalSum.innerHTML = `Total: ${orderSum}`;
+  document.getElementById("biller").appendChild(totalSum);
+}
+    </script>
+  </div>
+</template>
+<script>
+  export default {
+    data: function () {
+      var resturantId = this.$route.params.id;
+      var currentResturant;
+      this.$root.resturants.forEach(function (resturant) {
+        if (resturant.id === resturantId) {
+          currentResturant = resturant;
+        }
+      });
+      return {
+        resturant: currentResturant,
+      };
+    }
+  };
+</script>
