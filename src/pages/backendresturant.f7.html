@@ -14,59 +14,69 @@
     <div class="page-content">
         <div style="background-image:url({{resturant.img}})" class="card-header align-items-flex-end"></div>
       <div class="block-title"><b>{{resturant.title}}</b></div>
-      <div class="block block-strong accordion-item">
-        <a class="accordion-item-toggle" ><b>Rediger tekst</b></a>
-        <div class="accordion-item-content">
+      <div class="block">
+        
+      </div>
+    <a class="link popup-open" href="#" data-popup=".popup-view"><b>Rediger resturant</b></a>
+    <div class="popup popup-view ">
+      <div class="block ourthemeB">
+          <p >Till bestilling<a class="link popup-close rightB" href="#">X Steng</a></p>
+        <div class="block block-strong accordion-item">
+          <a class="accordion-item-toggle" ><b>Rediger tekst</b></a>
+          <div class="accordion-item-content">
 
-        <label for="titlefield"><b>Resturantnavn:</b> </label>
-        <input id="titlefield item-input" type="text" name="" placeholder="{{resturant.title}}" value="{{resturant.title}}">
-        <label for="imgfield"><b>Bilde:</b> </label>
-        <input id="imgfield item-input" type="text" name="" placeholder="{{resturant.img}}" value="{{resturant.img}}">
-          <label for="B{{resturant.id}}"><b>Beskrivelse:</b></label>
-      <textarea id="B{{resturant.id}}" name="name" rows="3" cols="60" placeholder="{{resturant.description}}">{{resturant.description}}</textarea>
-        <label for="A{{resturant.id}}"><b>Adresse:</b></label>
-        <textarea id="A{{resturant.id}}" name="name" rows="2" cols="40" placeholder="{{resturant.adresse}}">{{resturant.adresse}}</textarea>
+          <label for="titlefield"><b>Resturantnavn:</b> </label>
+          <input id="titlefield item-input" type="text" name="" placeholder="{{resturant.title}}" value="{{resturant.title}}">
+          <label for="imgfield"><b>Bilde:</b> </label>
+          <input id="imgfield item-input" type="text" name="" placeholder="{{resturant.img}}" value="{{resturant.img}}">
+            <label for="B{{resturant.id}}"><b>Beskrivelse:</b></label>
+        <textarea id="B{{resturant.id}}" name="name" rows="3" cols="60" placeholder="{{resturant.description}}">{{resturant.description}}</textarea>
+          <label for="A{{resturant.id}}"><b>Adresse:</b></label>
+          <textarea id="A{{resturant.id}}" name="name" rows="2" cols="40" placeholder="{{resturant.adresse}}">{{resturant.adresse}}</textarea>
 
-      <hr>
-      <button id="newIbtn" onclick="sayhi({{resturant.id}})" type="button" name="button"> Lagre endriger</button> <div id="hellofield" class="">
-</div>
-     </div>
-          </div>
-          <div id="newcategory" class="accordion-item">
-<div class="accordion-item-toggle">
-  <div class="item-media"><i class="icon icon-f7"></i></div>
-  <div class="item-inner">
-    <div class="item-title"><b>Legg til kategori</b></div>
+        <hr>
+        <button id="newIbtn" onclick="sayhi({{resturant.id}})" type="button" name="button"> Lagre endriger</button> <div id="hellofield" class="">
   </div>
-</div>
-<div class="accordion-item-content">
-  <label for="newcatfield"><b>Skriv navn: </b></label>
-  <input id="newcatfield" type="text" name="" placeholder="Ny Kategori">
-  <button id="newCatbtn" class="accordion-item-toggle" onclick="newCAT()"  type="button" name="button"> Legg til</button>
-
-</div>
-          </div>
-
-<div class="list">
-    <ul id="categoryLIST">
-         {{#each resturant.categorier}}
-         <li>
-  <a  href="/backcat/{{catid}}/" id="{{catnavn}}" onclick="activeCAT({{catnavn}},{{catid}})"  class="item-content">
+       </div>
+            </div>
+            <div id="newcategory" class="accordion-item">
+  <div class="accordion-item-toggle">
     <div class="item-media"><i class="icon icon-f7"></i></div>
     <div class="item-inner">
-      <div class="item-title">{{catnavn}}</div>
+      <div class="item-title"><b>Legg til kategori</b></div>
     </div>
-  </a>
-</li>
+  </div>
+  <div class="accordion-item-content">
+    <label for="newcatfield"><b>Skriv navn: </b></label>
+    <input id="newcatfield" type="text" name="" placeholder="Ny Kategori">
+    <button id="newCatbtn" class="accordion-item-toggle" onclick="newCAT()"  type="button" name="button"> Legg til</button>
 
-    {{/each}}
-                  </ul>
-        </div>
-        <div>
-        <button onclick="showBill()" type="button" name="button"> Activate biller</button> <div id="biller" class="">
+  </div>
+            </div>
 
-       </div>
+  <div class="list">
+      <ul id="categoryLIST">
+           {{#each resturant.categorier}}
+           <li>
+    <a  href="/backcat/{{catid}}/" id="{{catnavn}}" onclick="activeCAT({{catnavn}},{{catid}})"  class="item-content">
+      <div class="item-media"><i class="icon icon-f7"></i></div>
+      <div class="item-inner">
+        <div class="item-title">{{catnavn}}</div>
+      </div>
+    </a>
+  </li>
+
+      {{/each}}
+                    </ul>
+          </div>
+          <div>
+          <button onclick="showBill()" type="button" name="button"> Activate biller</button> <div id="biller" class="">
+
+         </div>
+      </div>
+      </div>
     </div>
+
     </div>
     <script type="text/javascript">
     //  console.log(ord3rlist1);

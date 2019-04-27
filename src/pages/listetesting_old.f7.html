@@ -1,5 +1,5 @@
 <template>
-<div class="page" data-name="realrestur">
+<div class="page" data-name="rTester">
   <div class="navbar ourthemeB">
       <div class="navbar-inner ourthemeB">
         <div class="left">
@@ -50,26 +50,13 @@
     </div>
   </div>
     <div class="rTest">heey i placed here</div>
-    <script type="text/javascript">
-
-      let theResturants = JSON.parse(localStorage.getItem("restaurants"));
-          console.log(localStorage.getItem("restaurants"));
-      console.log(theResturants);
-      console.log("retest")
-    //    console.log({{resturants}});
-    //  var tetett = {{resturants}};
-      //console.log(tetett);
-
-    </script>
 </div>
 </template>
 <script>
-
-
   export default {
     data: function () {
       return {
-        resturants: this.$root.realRestaurants,
+        resturants: this.$root.resturants,
       };
     }
   };

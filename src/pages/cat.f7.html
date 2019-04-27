@@ -3,7 +3,7 @@
     <div class="navbar ourthemeB">
       <div class="navbar-inner sliding ourthemeB">
         <div class="left">
-          <a onclick="showBill()" href="#" class="link back">
+          <a  href="#" class="link back">
             <i class="icon icon-back"></i>
             <span class="ios-only">Baaaaaaaaack</span>
           </a>
@@ -13,12 +13,15 @@
     </div>
     <div class="page-content">
       <div class="block-title header" id="myheader" ></div>
+      <div class="block" id="catbesk">
+
+      </div>
 <div class="list accordion-list">
   <ul class="ourthemeB">
       {{#each cat.meny}}
       <div><a id="bi{{rettID}}"></a><a  name="0" class="thisclass hide" id="B{{rettID}}"></a>
       </div>
-      <li class="accordion-item"> <a  class="item-content item-link">
+      <li id="scr{{rettID}}" class="accordion-item"> <a class="item-content item-link">
              <div class="item-inner">
                <div id="title{{rettID}}" class="item-title">{{navn}}</div>
 
@@ -28,8 +31,18 @@
                <p>Pris: {{prisw}}<p></p> <p> {{besk}}</p>
                <div class="buyBTNS">
                  <input id="K{{rettID}}" type="number" name="quantity" min="1" max="99" value="1">
+                 <div id="atributes" class="">
+                   <p> <input type="checkbox" value="Godt" id="att1{{rettID}}" class="show{{atrib}}  hide"> Label  <input type="checkbox" value="Godt" id="att1i{{rettID}}" class="show{{atrib}}  hide"> label2 </p> <p ></p>
+
+                   <div id="att2{{rettID}}" class="block block-strong show{{atrib}} hide">
+  <p> <label class="radio"><input type="radio" value="Sterk" name="{{rettID}}-radio-inline"><i class="icon-radio"></i></label>  Sterk </p>
+  <p> <label class="radio"><input id="styrk{{rettID}}" type="radio" value="Medium" name="{{rettID}}-radio-inline" checked><i class="icon-radio"></i></label>  Medium </p>
+  <p> <label class="radio"><input type="radio" value="Mild" name="{{rettID}}-radio-inline"><i class="icon-radio"></i></label>  Mild </p>
+</div>
+                 </div>
                  <textarea id="T{{rettID}}" name="name" rows="3" cols="20" placeholder="Ekstra infromsasjon"></textarea>
                  <button class="ourbutton" id="Btn{{rettID}}" onclick="addToOrder({{rettID}},{{prisw}})" type="button" name="button">Legg til i bestilling</button>
+
                </div>
              </div>
            </div>
@@ -44,9 +57,14 @@
 //  document.onload=luckyS();
 //console.log(aktivKatt);
 
-function doheaders(a,b){
+
+console.log(cat);
+
+function doheaders(a,b,c){
   document.getElementById("myheader").innerHTML =a;
   document.getElementById("toph3ader").innerHTML = b;
+  document.getElementById("catbesk").innerHTML = c;
+  amountInOrder();
 }
 //var restname="";
 function restNavn(bb){
@@ -109,20 +127,38 @@ document.getElementById(eval(`"bi${list[1]}"`)).innerHTML= " Antall i bestilling
 //var orderlist= [];
 var ord3rlist{{hat}}= "the super var is here";
       function addToOrder(info,pris){
+        document.getElementById('title'+info).click();
+        console.log("didit");
         console.log("011called");
         console.log(activeResturant+'active');
       //  alert({{cat}});
         console.log(info);
+        let andre= "ingen";
+        let att = document.querySelector('input[name="'+info+'-radio-inline"]:checked').value;
+        let stregth1 = document.getElementById('att1'+info).checked;
+        if (stregth1===true){
+        let stregth = document.querySelector('input[id="att1'+info+'"]:checked').value;
+        console.log("if 01 ???");
+      }
         let verdia = document.getElementById('K'+info).value;
         let bTekst = document.getElementById('T'+info).value;
         let bTitle = document.getElementById('title'+info).innerHTML;
+        console.log(att);
+        console.log(stregth1);
+        if (stregth1===true){
+           let stregth = document.querySelector('input[id="att1'+info+'"]:checked').value;
+                 console.log("if 0222222 ???");
+        console.log(stregth);
+        andre = stregth;
+      }
         console.log(bTekst);
         console.log(verdia);
         let verdi = parseInt(verdia);
       console.log(verdi);
       let myHat = {{hat}};
+      let theatribs = `Styrke: ${att} <br> Andre valg: ${andre}`;
       console.log(myHat+"her er asdasdasdsa");
-      let orderLine = [myHat,info,verdi,pris,bTekst,bTitle];
+      let orderLine = [myHat,info,verdi,pris,bTekst,bTitle,theatribs];
 var thevar = "orderlist"+activeResturant;
 console.log(eval(thevar));
 //console.log(thevar);
@@ -132,6 +168,10 @@ console.log(eval(thevar));
       document.getElementsByClassName("thisclass").name = "0";
       myPicks.forEach(fillList);*/
       amountInOrder();
+      document.getElementById('K'+info).value = 1;
+      document.getElementById('T'+info).value = "";
+      document.getElementById('att1'+info).checked = false;
+      document.getElementById('styrk'+info).checked = true;
       }
     </script>
     <script src="myJS.js" charset="utf-8"></script>

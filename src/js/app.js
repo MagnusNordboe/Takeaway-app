@@ -48,6 +48,7 @@ function initializeFramework7(restaurants){
           rettID: '1',
           navn: "Flying fish",
           besk: "digg burger, supergod snerr liom",
+          atrib: "1",
           prisw: '100'
         }, {
           rettID: '2',
@@ -58,11 +59,13 @@ function initializeFramework7(restaurants){
           rettID: '3',
           navn: "Catch and release",
           besk: '"digg 33333333333burger, supergod snerr liom"',
+          atrib: "2",
           prisw: '140'
         }, {
           rettID: '4',
           navn: '"Glipper"',
           besk: '"di44444g burger, supergod snerr liom"',
+          atrib: "1",
           prisw: '150'
         },
         ],
@@ -72,21 +75,25 @@ function initializeFramework7(restaurants){
           rettID: '1',
           navn: "Pizzarg",
           besk: "digg burger, supergod snerr liom",
+          atrib: "1",
           prisw: '100'
         }, {
           rettID: '2',
           navn: "Pinabble",
           besk: '"digg burg122222222222222222222supergod snerr liom"',
+          atrib: "2",
           prisw: '120'
         }, {
           rettID: '3',
           navn: "sjoritsto",
           besk: '"digg 33333333333burger, supergod snerr liom"',
+          atrib: "1",
           prisw: '140'
         }, {
           rettID: '4',
           navn: "oppkuttet vegetarianer",
           besk: '"di44444g burger, supergod snerr liom"',
+          atrib: "2",
           prisw: '150'
         },
         ],
@@ -96,6 +103,7 @@ function initializeFramework7(restaurants){
           rettID: '1',
           navn: "BrugBurg",
           besk: "digg burger, supergod snerr liom",
+          atrib: "1",
           prisw: '100'
         }, {
           rettID: '2',
@@ -106,6 +114,7 @@ function initializeFramework7(restaurants){
           rettID: '3',
           navn: "Bruger HEEY",
           besk: '"digg 33333333333burger, supergod snerr liom"',
+          atrib: "1",
           prisw: '140'
         }, {
           rettID: '4',
@@ -120,11 +129,13 @@ function initializeFramework7(restaurants){
           rettID: '1',
           navn: "brennevin",
           besk: "digg burger, supergod snerr liom",
+          atrib: "3",
           prisw: '100'
         }, {
           rettID: '2',
           navn: "konjakk",
           besk: '"digg burg122222222222222222222supergod snerr liom"',
+          atrib: "3",
           prisw: '120'
         }, {
           rettID: '3',
@@ -447,4 +458,3 @@ $$('#my-login-screen .login-button').on('click', function () {
   // Alert username and password
   app.dialog.alert('Username: ' + username + '<br>Password: ' + password);
 });
-

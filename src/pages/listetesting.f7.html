@@ -27,9 +27,12 @@
 
           {{#each resturants}}
           <div class="card demo-card-header-pic">
+        <a href="/resturantcatalog_old/{{id}}/" class="textcolloring">
+
+
   <div style="background-image:url({{img}})" class="card-header align-items-flex-end"></div>
   <div class="card-content card-content-padding accordion-item">
-    <div class="accordion-item-toggle">
+    <div class="">
     <p class="RLH">{{title}}</p>
     <p class="RLA">{{adresse}}</p>
   </div>
@@ -38,10 +41,11 @@
              <p>{{shortdescription}}<p>
            </div>
          </div>
+        
+    </a>
+  <div  class="card-footer"><a class="button accordion-item-toggle"><center>Mer</center></a></div>
   </div>
-  <div  class="card-footer"><a href="/resturantcatalog/{{id}}/" class="button"><center>Meny</center></a></div>
 </div>
-
     {{/each}}
         </ul>
       </div>

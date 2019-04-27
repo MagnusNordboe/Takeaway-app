@@ -1,3 +1,68 @@
+Morgan Konnestad
+on 27.03, 13.09
+Ragnar Parr Bjørnsund;Magnus Nordbø <nordbom@live.no>;Rune Andersen
+Morgan Konnestad;Ragnar Parr Bjørnsund;Magnus Nordbø <nordbom@live.no>;Rune Andersen
+Når:	on 24.04.2019 kl. 14.00–14.30 on 27.03.2019 kl. 12.30–13.00
+Hvor:	A3 064 Morgans Kontor
+GodtaForeløpigAvvisForeslå nytt tidspunkt
+Ingen konflikter
+/Morgan
+
+
+  <div class="title sliding"> <img src="/static/local_firstlogo.png" class="headerimg" alt=""></div>
+
+
+  <div class="title-large-text"><img src="/static/local_firstlogo.png" class="headerimg" alt="">  </div>
+
+
+
+
+
+
+
+  <div class="views tabs safe-areas">
+    <!-- Tabbar for switching views-tabs -->
+    <div class="toolbar toolbar-bottom tabbar-labels">
+      <div class="toolbar-inner">
+        <a href="#view-home" class="tab-link tab-link-active">
+          <i class="icon f7-icons ios-only">home_fill</i>
+          <i class="icon material-icons md-only">home</i>
+          <span class="tabbar-label">Home</span>
+        </a>
+        <a href="#view-catalog" class="tab-link">
+          <i class="icon f7-icons ios-only">list_fill</i>
+          <i class="icon material-icons md-only">view_list</i>
+          <span class="tabbar-label">Catalog</span>
+        </a>
+        <a href="#view-settings" class="tab-link">
+          <i class="icon f7-icons ios-only">settings_fill</i>
+          <i class="icon material-icons md-only">settings</i>
+          <span class="tabbar-label">Settings</span>
+        </a>
+      </div>
+    </div>
+
+    <!-- Your main view/tab, should have "view-main" class. It also has "tab-active" class -->
+    <div id="view-home" class="view view-main view-init tab tab-active" data-url="/">
+      <!-- Home page will be loaded here dynamically from / route -->
+    </div>
+
+    <!-- Catalog View -->
+    <div id="view-catalog" class="view view-init tab" data-view="catalog" data-url="/catalog/">
+      <!-- Catalog page will be loaded here dynamically from /catalog/ route -->
+    </div>
+
+    <!-- Settings View -->
+    <div id="view-settings" class="view view-init tab" data-view="settings" data-url="/settings/">
+      <!-- Settings page will be loaded here dynamically from /settings/ route -->
+    </div>
+  </div>
+
+
+
+
+
+
 <div class="panel panel-left panel-cover theme-dark">
   <div class="view">
     <div class="page">
@@ -11,11 +76,80 @@
       </div>
     </div>
   </div>
-</div>
-
+</div>  navbar-inner-large
+<div class="title-large">
+     <div class="title-large-text"><img src="/static/local_firstlogo.png" class="headerimg" alt=""></div>
+   </div>
 class="block"
+<div style="background-image:url()" class="card-header align-items-flex-end restIMG"></div>
+<div class="block-title">{{resturant.adresse}}</div>
+<div class="block block-strong">
+{{resturant.telefon}}  id {{resturant.id}}
+</div>  <div id="biller" class="">
 
+</div><button class="ourbutton" href="/resturantorder/{{resturant.id}}/" type="button" name="button"> Gå til ordre</button>
+<div class="list accordion-list ourthemeB">
+<ul>
+ {{#each resturant.categorier}}
+      <li>
+<a id="id{{catnavn}}" name="{{catnavn}}" onclick="activeCAT('{{catnavn}}',{{catid}})" href="/cat/{{catid}}/" class="item-link list-button">{{catnavn}}</a>
 
+</li>
+{{/each}}
+          </ul>
+</div>
+/*  function activeCAT(cat,hound){
+    console.log(cat);
+    console.log(hound);
+    console.log(`"${cat.name}"`);
+    console.log(`${cat.name}`);
+    console.log("Creating categoryheader");
+    let link = `/cat/${hound}/`;
+  //  var aktivKa = eval(cat);
+  //  var aktivKatt = aktivKa;
+    console.log(cat);
+    console.log(link);
+  //  setTimeout(luckyS(`${cat}`), 1100);
+  //  restNavn("{{resturant.title}}");
+    //window.href = link;
+
+    var catname= `${cat}`;
+    var restname=document.getElementById("restHead").innerHTML;
+      doheaders(catname,restname);
+    console.log(catname);
+    console.log(restname);
+  }
+
+  console.log({{resturant.id}});
+  var activeResturant = {{resturant.id}};
+    console.log("hei Resturant");
+    if (!orderlist{{resturant.id}}){
+      var orderlist{{resturant.id}} = [];
+      console.log("madeODERLIST");
+    }
+//var thevar = orderlist+{{resturant.id}}
+
+//console.log(orderlist{{resturant.id}});
+function showBill(){
+  document.getElementById("biller").innerHTML = "";
+let theList = orderlist{{resturant.id}};
+console.log(theList);
+let orderSum = 0;
+for (a=0; a<theList.length; a++){
+  let sum=theList[a][2]*theList[a][3];
+  let text = theList[a][4];
+var element = document.createElement("div");
+element.innerHTML = `<a> Kategori: ${theList[a][0]}   </a><a>Meny element: ${theList[a][1]}</a><a> Antall: ${theList[a][2]}</a><a>  Sum: ${sum}</a> <p>Information:  ${text}</p>`;
+orderSum+=sum;
+document.getElementById("biller").appendChild(element);
+}
+let totalSum = document.createElement("div");
+totalSum.innerHTML = `Total: ${orderSum}`;
+document.getElementById("biller").appendChild(totalSum);
+}
+showBill();
+console.log({{resturant}});
+*/
 <div class="views tabs safe-areas">
   <!-- Tabbar for switching views-tabs -->
   <div class="toolbar toolbar-bottom tabbar-labels heiTESTER">

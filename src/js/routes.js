@@ -6,7 +6,7 @@ import TestingPage from '../pages/testing.f7.html';
 import resturtesting from '../pages/listetesting.f7.html';
 import theResturantcatalog from '../pages/resturantcatalog.f7.html';
 import category from '../pages/cat.f7.html';
-
+import theResturantcatalog_old from '../pages/resturantcatalog_old.f7.html';
 import FormPage from '../pages/form.f7.html';
 import CatalogPage from '../pages/catalog.f7.html';
 import ProductPage from '../pages/product.f7.html';
@@ -14,7 +14,6 @@ import SettingsPage from '../pages/settings.f7.html';
 import chooseresturantback from '../pages/resturantback.f7.html';
 import resturantBACK from '../pages/backendresturant.f7.html';
 import categoryedit from '../pages/backcat.f7.html';
-
 import orderfromrest from '../pages/resturantorder.f7.html';
 
 import DynamicRoutePage from '../pages/dynamic-route.f7.html';
@@ -49,6 +48,10 @@ var routes = [
   {
     path: '/resturantcatalog/:id/',
     component: theResturantcatalog,
+  },
+  {
+    path: '/resturantcatalog_old/:id/',
+    component: theResturantcatalog_old,
   },
   {
     path: '/backendresturant/:id/',
