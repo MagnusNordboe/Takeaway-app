@@ -3,13 +3,17 @@
 
 
   // Initialize Firebase
-  import firebase from 'firebase'
+  import firebase from 'firebase/'
+  import { reject } from 'q';
   import config from '../config';
-import { reject } from 'q';
-  let firebaseApp = firebase.initializeApp(config);
+  export let firebaseApp = firebase.initializeApp(config);
+  export let auth = firebase.auth();
   const functions = firebase.functions(firebaseApp);
   const db = firebase.firestore(firebaseApp);
-
+  export let authKeys = {
+      emailAuth: firebase.auth.EmailAuthProvider.PROVIDER_ID,
+      googleAuth: firebase.auth.GoogleAuthProvider.PROVIDER_ID
+  }
 
 export function getMagnusMeny() {
   console.log("start getfromdatabase");
@@ -25,6 +29,7 @@ export function getMagnusMeny() {
     reject(error);
   });
 }
+
 export function getAllRestaurants(){
     const route = db.collection('Restauranter');
     console.log(route);
@@ -79,4 +84,72 @@ export function updateOrders(deleted, currentOrders, restaurant) {
         let newOrders = result.data;
         console.log(newOrders);
     })
+}
+
+export function updateArray(){
+    let brusArray = [
+        {
+            kategorinavn: 'brus'
+        },
+        {
+            id: 192,
+            navn: 'fanta',
+            pris: 30,
+        },
+        {
+            id: 193,
+            navn: 'cola',
+            pris: 30
+        },
+        {
+            id: 194,
+            navn: 'villa champagne',
+            pris: 30
+        }
+    ];
+    let burgerArray = [
+        {
+            kategorinavn: 'burgere',
+        },
+        {
+            id: 195,
+            navn: 'magnus spesialburger',
+            pris: 150,
+            allergener: [
+                'gluten',
+                'egg',
+                'hvete'
+            ]
+        },
+        {
+            id: 196,
+            navn: 'biffburger cheesy deluxe',
+            pris: 200,
+            allergener: [
+                'laktose',
+                'hvete'
+            ]
+        },
+        {
+            id: 197,
+            navn: 'kyllingburger',
+            pris: 174,
+            allergener: [
+                'hvete'
+            ]
+        }
+    ];
+
+    let magnusSpiseriArray = [
+        {
+            restaurant: 'Magnus Spiseri',
+            adresse: 'bortevekkveien 69',
+            telefon: 9999999
+        },
+        brusArray,
+        burgerArray
+    ];
+    let parsedJSON = JSON.stringify(magnusSpiseriArray);
+    console.log(parsedJSON);
+    db.collection('Restauranter').doc('Magnus spiseri').update({jsonString: parsedJSON}).then(function(){console.log('ferdig puttet json')}).catch(function(error){console.error(error)});
 }

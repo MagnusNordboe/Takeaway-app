@@ -1,8 +1,6 @@
 import $$ from 'dom7';
 import Framework7 from 'framework7/framework7.esm.bundle.js';
 
-import * as database from './database';
-import {db} from './database';
 // Import F7 Styles
 import 'framework7/css/framework7.bundle.css';
 
@@ -14,9 +12,11 @@ import cordovaApp from './cordova-app.js';
 // Import Routes
 import routes from './routes.js';
 
-//Prepare for framework7 init
-var app;
+import firebaseui from 'firebaseui';
+import * as database from './database';
 
+//Prepare for framework7 init
+var framework7app;
 
 //Sjekk om localstorage allerede har listen over restauranter
 if(window.localStorage.getItem('restaurants')){
@@ -27,14 +27,16 @@ else{
   database.getAllRestaurants().then((array) => {
     initializeFramework7(array);
     let restaurants = JSON.stringify(array);
+    window.localStorage.clear();
     window.localStorage.setItem('restaurants', restaurants);
   })
 }
 
 
 
+
 function initializeFramework7(restaurants){
-  app = new Framework7({
+  framework7app = new Framework7({
   root: '#app', // App root element
   id: 'io.localorder.app', // App bundle ID
   name: 'Local Order', // App name
@@ -396,7 +398,7 @@ function initializeFramework7(restaurants){
   // App root methods
   methods: {
     helloWorld: function () {
-      app.dialog.alert('Hello World!');
+      framework7app.dialog.alert('Hello World!');
     },
    // firebase,
    // firestore,
@@ -433,18 +435,34 @@ function initializeFramework7(restaurants){
 });
 }
 
-//Gjør framework7 tilgjengelig i window
-window.app = app;
-console.log(app.data);
+var ui = new firebaseui.auth.AuthUI(database.auth);
+ui.start('#authDisplay', {
+  callbacks: {
+    signInSuccessWithAuthResult: function(authResult, redirectUrl){
+      ui.reset();
+    }
+  },
+  signInOptions: [
+    {
+    provider: database.authKeys.emailAuth,
+    requireDisplayName: false
+    }
+  ],
+  signInSuccessUrl: '/index.html',
+  credentialHelper: 'none'
+});
 
+//Gjør framework7 tilgjengelig i window
+window.app = framework7app;
+console.log(framework7app.data);
+database.updateArray();
 // Login Screen Demo
 $$('#my-login-screen .login-button').on('click', function () {
   var username = $$('#my-login-screen [name="username"]').val();
   var password = $$('#my-login-screen [name="password"]').val();
   // Close login screen
-  app.loginScreen.close('#my-login-screen');
-
+  framework7app.loginScreen.close('#my-login-screen');
   // Alert username and password
-  app.dialog.alert('Username: ' + username + '<br>Password: ' + password);
+  framework7app.dialog.alert('Username: ' + username + '<br>Password: ' + password);
 });
 
