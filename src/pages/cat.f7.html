@@ -126,6 +126,25 @@ document.getElementById(eval(`"bi${list[1]}"`)).innerHTML= " Antall i bestilling
 //console.log({{cat[0]}});
 //var orderlist= [];
 var ord3rlist{{hat}}= "the super var is here";
+
+function createshortsum(){
+  console.log("creating short sum");
+    document.getElementById("ordersumshort").innerHTML="";
+    let orders =  eval("orderlist"+activeResturant);
+    let aoc = 0;
+    let fler = "";
+    var i;
+    for (i = 0; i < orders.length; i++) {
+    aoc += orders[i][2];
+      }
+      if (aoc>0){
+      if (aoc>1){fler = "er";}
+      let myP = document.createElement("P");
+      myP.innerHTML = `Du har ${aoc} rett${fler} i handlekurven`;
+      document.getElementById("ordersumshort").appendChild(myP);
+    }
+    else{console.log("Havent picked yet");}
+}
       function addToOrder(info,pris){
         document.getElementById('title'+info).click();
         console.log("didit");
@@ -167,6 +186,7 @@ console.log(eval(thevar));
     /*  let myPicks = eval(thevar);
       document.getElementsByClassName("thisclass").name = "0";
       myPicks.forEach(fillList);*/
+      createshortsum();
       amountInOrder();
       document.getElementById('K'+info).value = 1;
       document.getElementById('T'+info).value = "";

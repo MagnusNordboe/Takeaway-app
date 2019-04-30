@@ -5,11 +5,17 @@
 .ourthemeB{
 background-color: #fbffe127!important;
 }
-.show1.hide{
-
+.ourlist{
+  border-radius: 25px;
+      border: 1px solid #e9fce7;
+      box-shadow: 2px 4px #fbfbFB;
+      margin: 1%;
 }
 .show2.hide{
 
+}
+.showme{
+  display: none!important;
 }
 
 .giveM{

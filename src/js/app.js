@@ -42,6 +42,7 @@ function initializeFramework7(restaurants){
   // App root data
   data: function () {
     return {
+      muligekategorier:'["Alle", "Sushi", "Burger", "Pizza", "Kebab"]',
       menye: [{
         id: '31',
         meny: [{
@@ -303,6 +304,7 @@ function initializeFramework7(restaurants){
           img: 'https://www.tynker.com/projects/screenshot/5c3ca926b7ccdd0e6220eadd/smiol.png',
           description: 'Grimstad A yeah thats a sted.',
           shortdescription: 'Grimstad A yeah thats a sted.',
+          restkategori:'Burger',
           adresse: 'Sentrum 4 48179'
         },
         {
@@ -311,6 +313,7 @@ function initializeFramework7(restaurants){
           img: 'https://www.tynker.com/projects/screenshot/5c3ca926b7ccdd0e6220eadd/smiol.png',
           description: 'Velit odit autem modi saepe ratione totam minus, aperiam, labore quia provident temporibus quasi est ut aliquid blanditiis beatae suscipit odio vel! Nostrum porro sunt sint eveniet maiores, dolorem itaque!',
           shortdescription: 'Grimstad  you seeA yeah thats a sted.',
+              restkategori:'Pizza',
           adresse: 'Sentrum 4 48179'
         },
         {
@@ -319,6 +322,7 @@ function initializeFramework7(restaurants){
           img: 'https://www.tynker.com/projects/screenshot/5c3ca926b7ccdd0e6220eadd/smiol.png',
           description: 'Expedita sequi perferendis quod illum pariatur aliquam, alias laboriosam! Vero blanditiis placeat, mollitia necessitatibus reprehenderit. Labore dolores amet quos, accusamus earum asperiores officiis assumenda optio architecto quia neque, quae eum.',
           adresse: 'Sentrum 4 48179',
+              restkategori:'Sushi Fisk',
           shortdescription: 'Gradd maxleght to this field',
           categorier: [{
             catid: '31',
@@ -351,6 +355,7 @@ function initializeFramework7(restaurants){
           description: 'Expedita sequi perferendis quod illum pariatur aliquam, alias laboriosam! Vero blanditiis placeat, mollitia necessitatibus reprehenderit. Labore dolores amet quos, accusamus earum asperiores officiis assumenda optio architecto quia neque, quae eum.',
           adresse: 'Sentrum 4 48179',
           shortdescription: 'Short description.',
+              restkategori:'Pizza Kebab',
           categorier: [{
             catid: '41',
             catnavn: "burgere",
@@ -377,6 +382,7 @@ function initializeFramework7(restaurants){
           img: 'https://www.tynker.com/projects/screenshot/5c3ca926b7ccdd0e6220eadd/smiol.png',
           description: 'Expedita sequi perferendis quod illum pariatur aliquam, alias laboriosam! Vero blanditiis placeat, mollitia necessitatibus reprehenderit. Labore dolores amet quos, accusamus earum asperiores officiis assumenda optio architecto quia neque, quae eum.',
           adresse: 'Sentrum 4 48179',
+              restkategori:'Burger',
           retter: [{
             rettID: `'1'`,
             navn: "BrudasdasdBurg",

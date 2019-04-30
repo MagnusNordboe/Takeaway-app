@@ -17,12 +17,15 @@
       <div class="block block-strong">
         {{resturant.description}} {{resturant.id}}
       </div>
+      <div class="block" id="ordersumshort">
+
+      </div>
       <button class="ourbutton link popup-open" onclick="showtheBill()" href="#" type="button" name="button" data-popup=".popup-bill"> Gå til ordre</button>
 <div class="list accordion-list ourthemeB">
   <p class="giveM">Kategoreier:</p>
     <ul>
          {{#each resturant.categorier}}
-              <li class="ourthemeB giveM">
+              <li class="ourthemeB giveM ourlist">
     <a id="id{{catnavn}}" name="{{catnavn}}" onclick="activeCAT('{{catnavn}}',{{catid}})" href="/cat/{{catid}}/" class="item-link list-button">{{catnavn}}</a>
 
     </li>
@@ -43,7 +46,7 @@
 
 
     <script type="text/javascript">
-      
+
       function showtheBill(){
           document.getElementById("biller").innerHTML = "";
         theList = orderlist{{resturant.id}};
