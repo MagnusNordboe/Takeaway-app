@@ -300,8 +300,8 @@ function initializeFramework7(restaurants){
       resturants: [
         {
           id: '1',
-          title: 'Burger 1 sjappa ',
-          img: 'https://www.tynker.com/projects/screenshot/5c3ca926b7ccdd0e6220eadd/smiol.png',
+          title: 'Burger Hub (demo) ',
+          img: '/static/dmoimg/burgerhub1.png',
           description: 'Grimstad A yeah thats a sted.',
           shortdescription: 'Grimstad A yeah thats a sted.',
           restkategori:'Burger',
@@ -309,8 +309,8 @@ function initializeFramework7(restaurants){
         },
         {
           id: '2',
-          title: 'Pizza 1 stedet',
-          img: 'https://www.tynker.com/projects/screenshot/5c3ca926b7ccdd0e6220eadd/smiol.png',
+          title: 'Happytime Cafe (demo)',
+          img: '/static/dmoimg/happytimecafe1.png',
           description: 'Velit odit autem modi saepe ratione totam minus, aperiam, labore quia provident temporibus quasi est ut aliquid blanditiis beatae suscipit odio vel! Nostrum porro sunt sint eveniet maiores, dolorem itaque!',
           shortdescription: 'Grimstad  you seeA yeah thats a sted.',
               restkategori:'Pizza',
@@ -318,8 +318,8 @@ function initializeFramework7(restaurants){
         },
         {
           id: '3',
-          title: 'Pizza 2 resturanten',
-          img: 'https://www.tynker.com/projects/screenshot/5c3ca926b7ccdd0e6220eadd/smiol.png',
+          title: 'Ikko sushi (demo)',
+          img: '/static/dmoimg/Ikkosushi1.png',
           description: 'Expedita sequi perferendis quod illum pariatur aliquam, alias laboriosam! Vero blanditiis placeat, mollitia necessitatibus reprehenderit. Labore dolores amet quos, accusamus earum asperiores officiis assumenda optio architecto quia neque, quae eum.',
           adresse: 'Sentrum 4 48179',
               restkategori:'Sushi Fisk',
@@ -350,8 +350,8 @@ function initializeFramework7(restaurants){
         },
         {
           id: '4',
-          title: 'Pizza 3 serveringsted',
-          img: 'https://www.tynker.com/projects/screenshot/5c3ca926b7ccdd0e6220eadd/smiol.png',
+          title: 'Dampen (demo)',
+          img: '/static/dmoimg/dampen1.png',
           description: 'Expedita sequi perferendis quod illum pariatur aliquam, alias laboriosam! Vero blanditiis placeat, mollitia necessitatibus reprehenderit. Labore dolores amet quos, accusamus earum asperiores officiis assumenda optio architecto quia neque, quae eum.',
           adresse: 'Sentrum 4 48179',
           shortdescription: 'Short description.',
@@ -378,8 +378,8 @@ function initializeFramework7(restaurants){
         },
         {
           id: '5',
-          title: 'Burger 2 inntak plassering',
-          img: 'https://www.tynker.com/projects/screenshot/5c3ca926b7ccdd0e6220eadd/smiol.png',
+          title: 'Kebabish (demo)',
+          img: '/static/dmoimg/Kebabish1.png',
           description: 'Expedita sequi perferendis quod illum pariatur aliquam, alias laboriosam! Vero blanditiis placeat, mollitia necessitatibus reprehenderit. Labore dolores amet quos, accusamus earum asperiores officiis assumenda optio architecto quia neque, quae eum.',
           adresse: 'Sentrum 4 48179',
               restkategori:'Burger',
