@@ -17,10 +17,12 @@
       <div class="block block-strong">
         {{resturant.description}} {{resturant.id}}
       </div>
-      <div class="block" id="ordersumshort">
+      <div id="visbill" class="showme block">
+      <div class="block green" id="ordersumshort">
 
       </div>
-      <button class="ourbutton link popup-open" onclick="showtheBill()" href="#" type="button" name="button" data-popup=".popup-bill"> Gå til ordre</button>
+      <a class="link popup-open largerfont" onclick="showtheBill()" href="#" data-popup=".popup-bill"> Gå til ordre</a>
+      </div>
 <div class="list accordion-list ourthemeB">
   <p class="giveM">Kategoreier:</p>
     <ul>
@@ -37,7 +39,7 @@
       <div class="block ourthemeB">
 
         <!-- Close Popup -->
-        <p >Till bestilling<a class="link popup-close rightB" href="#">X Steng</a></p>
+        <p >Till bestilling<a class="link popup-close rightB textcolloring" href="#">X Steng</a></p>
         <div id="biller" class="ourthemeB">
 
         </div>
@@ -63,11 +65,11 @@
             <div class="item-inner">
                 <div class="item-title">${theList[a][5]}</div>
                 <div class="textcolloring">
-                  <a> Antall: ${theList[a][2]}</a><a>  Sum: ${sum}</a>
+                  <a class="green"> Antall: ${theList[a][2]}</a><a  class="green">  Sum: ${sum}</a>
                 </div>
             </div>
         </a>
-        <div class="accordion-item-content"><p>Information: </p><button class="ourbutton smallB" type="button" onclick="removefromorder(${a})" name="button">Slett</button><p> ${text}</p><p>Valg: </p><p> ${theList[a][6]}</p></div>
+        <div class="accordion-item-content"><p>Information: </p><a class="red largerfont" onclick="removefromorder(${a})" >Slett</a><p> ${text}</p><p>Valg: </p><p> ${theList[a][6]}</p></div>
     `;
         orderSum+=sum;
         document.getElementById("biller").appendChild(element);

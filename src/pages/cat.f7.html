@@ -19,17 +19,17 @@
 <div class="list accordion-list">
   <ul class="ourthemeB">
       {{#each cat.meny}}
-      <div><a id="bi{{rettID}}"></a><a  name="0" class="thisclass hide" id="B{{rettID}}"></a>
-      </div>
-      <li id="scr{{rettID}}" class="accordion-item"> <a class="item-content item-link">
+
+      <li id="scr{{rettID}}" class="accordion-item"> <div class="item-content item-link">
              <div class="item-inner">
                <div id="title{{rettID}}" class="item-title">{{navn}}</div>
-
-             </div></a>
+<a id="bi{{rettID}}"  class="green"></a>
+             </div></div>
            <div class="accordion-item-content">
              <div class="block">
                <p>Pris: {{prisw}}<p></p> <p> {{besk}}</p>
                <div class="buyBTNS">
+                 <a  name="0" class="thisclass hide" id="B{{rettID}}"></a>
                  <input id="K{{rettID}}" type="number" name="quantity" min="1" max="99" value="1">
                  <div id="atributes" class="">
                    <p> <input type="checkbox" value="Godt" id="att1{{rettID}}" class="show{{atrib}}  hide"> Label  <input type="checkbox" value="Godt" id="att1i{{rettID}}" class="show{{atrib}}  hide"> label2 </p> <p ></p>
@@ -41,7 +41,7 @@
 </div>
                  </div>
                  <textarea id="T{{rettID}}" name="name" rows="3" cols="20" placeholder="Ekstra infromsasjon"></textarea>
-                 <button class="ourbutton" id="Btn{{rettID}}" onclick="addToOrder({{rettID}},{{prisw}})" type="button" name="button">Legg til i bestilling</button>
+                 <button class="ourbutton" id="Btn{{rettID}}" onclick="addToOrder({{rettID}},{{prisw}})">Legg til i bestilling</button>
 
                </div>
              </div>
@@ -116,9 +116,10 @@ for (i = 0; i < x.length; i++) {
      let calcVal = parseInt(mediumVal);
      let newVal = calcVal + list[2];
      console.log(newVal);
-     document.getElementById(eval(`"B${list[1]}"`)).name = newVal;
-document.getElementById(eval(`"B${list[1]}"`)).innerHTML = newVal;
-document.getElementById(eval(`"bi${list[1]}"`)).innerHTML= " Antall i bestilling:  ";
+      document.getElementById(eval(`"B${list[1]}"`)).name = newVal;
+//document.getElementById(eval(`"B${list[1]}"`)).innerHTML = newVal;
+document.getElementById(eval(`"bi${list[1]}"`)).innerHTML= " Antall i bestilling:  "+newVal;
+//document.getElementById(eval(`"bi${list[1]}"`)).classList.add("marginer");
 }
 //document.getElementById(eval(`"bi${list[1]}"`)).classList.remove(hide);
    }
@@ -142,6 +143,7 @@ function createshortsum(){
       let myP = document.createElement("P");
       myP.innerHTML = `Du har ${aoc} rett${fler} i handlekurven`;
       document.getElementById("ordersumshort").appendChild(myP);
+      document.getElementById("visbill").classList.remove("showme");
     }
     else{console.log("Havent picked yet");}
 }
