@@ -8,7 +8,7 @@
   import config from '../config';
   export let firebaseApp = firebase.initializeApp(config);
   export let auth = firebase.auth();
-  const functions = firebase.functions(firebaseApp);
+  export const functions = firebase.functions(firebaseApp);
   const db = firebase.firestore(firebaseApp);
   export let authKeys = {
       emailAuth: firebase.auth.EmailAuthProvider.PROVIDER_ID,

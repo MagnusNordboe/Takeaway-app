@@ -440,6 +440,8 @@ ui.start('#authDisplay', {
   callbacks: {
     signInSuccessWithAuthResult: function(authResult, redirectUrl){
       ui.reset();
+      console.log(authResult);
+      return true;
     }
   },
   signInOptions: [
@@ -448,7 +450,7 @@ ui.start('#authDisplay', {
     requireDisplayName: false
     }
   ],
-  signInSuccessUrl: '/index.html',
+  signInSuccessUrl: '/resturantback/',
   credentialHelper: 'none'
 });
 
