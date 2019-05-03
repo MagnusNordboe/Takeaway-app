@@ -32,9 +32,8 @@
                  <a  name="0" class="thisclass hide" id="B{{rettID}}"></a>
                  <input id="K{{rettID}}" type="number" name="quantity" min="1" max="99" value="1">
                  <div id="atributes" class="">
-                   <p> <input type="checkbox" value="Godt" id="att1{{rettID}}" class="show{{atrib}}  hide"> Label  <input type="checkbox" value="Godt" id="att1i{{rettID}}" class="show{{atrib}}  hide"> label2 </p> <p ></p>
 
-                   <div id="att2{{rettID}}" class="block block-strong show{{atrib}} hide">
+                   <div id="att2{{rettID}}" class="hide{{atrib}}">
   <p> <label class="radio"><input type="radio" value="Sterk" name="{{rettID}}-radio-inline"><i class="icon-radio"></i></label>  Sterk </p>
   <p> <label class="radio"><input id="styrk{{rettID}}" type="radio" value="Medium" name="{{rettID}}-radio-inline" checked><i class="icon-radio"></i></label>  Medium </p>
   <p> <label class="radio"><input type="radio" value="Mild" name="{{rettID}}-radio-inline"><i class="icon-radio"></i></label>  Mild </p>
@@ -156,9 +155,9 @@ function createshortsum(){
         console.log(info);
         let andre= "ingen";
         let att = document.querySelector('input[name="'+info+'-radio-inline"]:checked').value;
-        let stregth1 = document.getElementById('att1'+info).checked;
+      //  let stregth1 = document.getElementById('att1'+info).checked;
         if (stregth1===true){
-        let stregth = document.querySelector('input[id="att1'+info+'"]:checked').value;
+  //      let stregth = document.querySelector('input[id="att1'+info+'"]:checked').value;
         console.log("if 01 ???");
       }
         let verdia = document.getElementById('K'+info).value;
@@ -167,7 +166,7 @@ function createshortsum(){
         console.log(att);
         console.log(stregth1);
         if (stregth1===true){
-           let stregth = document.querySelector('input[id="att1'+info+'"]:checked').value;
+      //     let stregth = document.querySelector('input[id="att1'+info+'"]:checked').value;
                  console.log("if 0222222 ???");
         console.log(stregth);
         andre = stregth;
@@ -179,7 +178,7 @@ function createshortsum(){
       let myHat = {{hat}};
       let theatribs = `Styrke: ${att} <br> Andre valg: ${andre}`;
       console.log(myHat+"her er asdasdasdsa");
-      let orderLine = [myHat,info,verdi,pris,bTekst,bTitle,theatribs];
+      let orderLine = [myHat,info,verdi,pris,bTekst,bTitle,theatribs,activeResturant,aRName];
 var thevar = "orderlist"+activeResturant;
 console.log(eval(thevar));
 //console.log(thevar);
@@ -188,6 +187,7 @@ console.log(eval(thevar));
     /*  let myPicks = eval(thevar);
       document.getElementsByClassName("thisclass").name = "0";
       myPicks.forEach(fillList);*/
+      console.log(eval(thevar));
       createshortsum();
       amountInOrder();
       document.getElementById('K'+info).value = 1;

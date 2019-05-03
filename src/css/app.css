@@ -11,11 +11,15 @@ background-color: #fbffe127!important;
       box-shadow: 2px 4px #fbfbFB;
       margin: 1%;
 }
-.show2.hide{
 
-}
 .showme{
   display: none!important;
+}
+.hide1{
+  display: block;
+}
+.hide2{
+  display: none;
 }
 
 .giveM{
