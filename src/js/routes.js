@@ -56,7 +56,6 @@ var routes = [
   {
     path: '/backendresturant/:id/',
     component: resturantBACK,
-    url: './backend.html'
   },
   {
       path: '/cat/:id/',

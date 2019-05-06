@@ -542,6 +542,46 @@ function initializeFramework7(restaurants){
     helloWorld: function () {
       app.dialog.alert('Hello World!');
     },
+    updateOrders: function() {
+      let data = {
+        //Deleted = array med alle bestillinger som har blit slettet siden forrige gang funksjonen ble kalt.
+            deleted: null,
+        //currentOrders = array med alle aktive bestillinger lokalt i appen til restauranten
+            currentOrders:null,
+        //restaurantCtx = objekt med informasjon om restauranten som sendte request. 
+        };
+    
+       /* let updateOrdersCloudFunction = database.functions.httpsCallable('updateOrders');
+        return updateOrdersCloudFunction(data).then((result) => {
+          console.log(result);
+            let newOrders = result.data;
+            return newOrders;
+        }); */
+        db.collection('Restauranter').doc("Kebabish (demo)").collection('Bestillinger').get().then(querySnapshot => {
+          let serverSideOrders = [];
+
+            querySnapshot.docs.forEach((element) => {
+              console.log(element);
+                let docData = element.data();
+                serverSideOrders.push(docData);
+               // element.ref.delete();
+            });
+            console.log(serverSideOrders);
+            
+            return serverSideOrders;
+        });
+    },
+    addToOrder: function(order) {
+      let restaurant = order[8];
+      console.log('navn på restaurant for addToOrder: ' + restaurant);
+      order = {
+        jsonstring: JSON.stringify(order)
+      };
+      const route = db.collection('Restauranter').doc(restaurant).collection('Bestillinger');
+      route.add(order).then(document =>{
+        console.log("Dokument laget at AddToOrder: ",document);
+      });
+    }
    // firebase,
    // firestore,
    // db,

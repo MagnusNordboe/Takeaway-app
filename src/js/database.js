@@ -9,7 +9,7 @@
   export let firebaseApp = firebase.initializeApp(config);
   export let auth = firebase.auth();
   export const functions = firebase.functions(firebaseApp);
-  const db = firebase.firestore(firebaseApp);
+  export const db = firebase.firestore(firebaseApp);
   export let authKeys = {
       emailAuth: firebase.auth.EmailAuthProvider.PROVIDER_ID,
       googleAuth: firebase.auth.GoogleAuthProvider.PROVIDER_ID
@@ -64,10 +64,10 @@ export function getTakeoutMenu(restaurant){
 
 export function addToOrder(order){
     let restaurant = order[8];
-    
+    console.log('navn på restaurant for addToOrder: ' + restaurant);
     order = JSON.stringify(order);
-    const route = db.collection('Restauranter').doc(restaurant).collection('Bestillinger').add(order);
-    route.set(order);
+    const route = db.collection('Restauranter').doc(restaurant).collection('Bestillinger');
+    route.add(order);
 }
 
 export function updateOrders(deleted = null, currentOrders = null) {
@@ -81,7 +81,7 @@ export function updateOrders(deleted = null, currentOrders = null) {
 
     let updateOrdersCloudFunction = functions.httpsCallable('updateOrders');
     updateOrdersCloudFunction(data).then((result) => {
-        let newOrders = result.data;
+        let newOrders = result.data || null;
         return newOrders;
     })
 }

@@ -176,15 +176,15 @@ totalSum.innerHTML = `Total: ${orderSum}`;
   document.getElementById("biller").appendChild(totalSum);
 }
 
-import * as database from '../js/database';
 
 let timer = setInterval(getNewOrdersFromDb(), 3000);
 
 function getNewOrdersFromDb(){
-  let newOrders =JSON.parse(database.updateOrders());
-  newOrders.forEach(element =>{
-    createOrderModal(element);
+  window.app.methods.updateOrders().then(orders =>{
+    console.log(orders);
+
   });
+  
 }
 
 
