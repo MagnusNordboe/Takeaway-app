@@ -1,6 +1,6 @@
 <template>
   <div class="page" data-name="resturantcatalog">
-    <div class="navbar ourthemeB">
+    <div class="navbar">
       <div class="navbar-inner sliding ourthemeB">
         <div class="left">
           <a href="#" class="link back">
@@ -25,7 +25,7 @@
       </div>
 <div class="list accordion-list ourthemeB">
   <p class="giveM">Kategoreier:</p>
-    <ul>
+    <ul class=" catlist">
          {{#each resturant.categorier}}
               <li class="ourthemeB giveM ourlist">
     <a id="id{{catnavn}}" name="{{catnavn}}" onclick="activeCAT('{{catnavn}}',{{catid}})" href="/cat/{{catid}}/" class="item-link list-button">{{catnavn}}</a>
@@ -48,7 +48,6 @@
 
 
     <script type="text/javascript">
-
       function showtheBill(){
           document.getElementById("biller").innerHTML = "";
         theList = orderlist{{resturant.id}};
@@ -73,11 +72,8 @@
     `;
         orderSum+=sum;
         document.getElementById("biller").appendChild(element);
-
       }
       //[myHat,info,verdi,pris,bTekst,bTitle];<a> Kategori: ${theList[a][0]}   </a><a>Meny element: ${theList[a][1]}</a><a> Antall: ${theList[a][2]}</a><a>  Sum: ${sum}</a>
-
-
       let totalSum = document.createElement("div");
       totalSum.innerHTML = `  <hr> Total: ${orderSum}   <hr>`;
         document.getElementById("biller").appendChild(totalSum);
@@ -92,9 +88,11 @@
         theList.splice(tall, 1,);
         console.log(theList);
         showtheBill();
+        createshortsum();
       }
       function sayhu(){
         console.log("sayhu");
+        console.log(theList);
       }
     //  console.log(ord3rlist1);
   //  var aktivKatt;
@@ -111,25 +109,23 @@
       console.log(link);
     //  setTimeout(luckyS(`${cat}`), 1100);
     //  restNavn("{{resturant.title}}");
-      //window.href = link;
-
+    //  window.href = link;
       var catname= `${cat}`;
       var restname=document.getElementById("restHead").innerHTML;
-      let loremips= "hey hey beskrivelse";
-        doheaders(catname,restname,loremips);
+      var loremips= "hey hey beskrivelse";
+      doheaders(catname,restname,loremips);
       console.log(catname);
       console.log(restname);
     }
-
     console.log({{resturant.id}});
     var activeResturant = {{resturant.id}};
+    var aRName = `{{resturant.title}}`;
       console.log("hei Resturant");
       if (!orderlist{{resturant.id}}){
         var orderlist{{resturant.id}} = [];
         console.log("madeODERLIST");
       }
  //var thevar = orderlist+{{resturant.id}}
-
 //console.log(orderlist{{resturant.id}});
 /*function showBill(){
     document.getElementById("biller").innerHTML = "";

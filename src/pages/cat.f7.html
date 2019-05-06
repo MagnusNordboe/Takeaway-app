@@ -1,6 +1,6 @@
 <template>
   <div class="page" data-name="cat">
-    <div class="navbar ourthemeB">
+    <div class="navbar ">
       <div class="navbar-inner sliding ourthemeB">
         <div class="left">
           <a  href="#" class="link back">
@@ -32,16 +32,15 @@
                  <a  name="0" class="thisclass hide" id="B{{rettID}}"></a>
                  <input id="K{{rettID}}" type="number" name="quantity" min="1" max="99" value="1">
                  <div id="atributes" class="">
-                   <p> <input type="checkbox" value="Godt" id="att1{{rettID}}" class="show{{atrib}}  hide"> Label  <input type="checkbox" value="Godt" id="att1i{{rettID}}" class="show{{atrib}}  hide"> label2 </p> <p ></p>
 
-                   <div id="att2{{rettID}}" class="block block-strong show{{atrib}} hide">
+                   <div id="att2{{rettID}}" class="hides{{atrib}}">
   <p> <label class="radio"><input type="radio" value="Sterk" name="{{rettID}}-radio-inline"><i class="icon-radio"></i></label>  Sterk </p>
   <p> <label class="radio"><input id="styrk{{rettID}}" type="radio" value="Medium" name="{{rettID}}-radio-inline" checked><i class="icon-radio"></i></label>  Medium </p>
   <p> <label class="radio"><input type="radio" value="Mild" name="{{rettID}}-radio-inline"><i class="icon-radio"></i></label>  Mild </p>
 </div>
                  </div>
                  <textarea id="T{{rettID}}" name="name" rows="3" cols="20" placeholder="Ekstra infromsasjon"></textarea>
-                 <button class="ourbutton" id="Btn{{rettID}}" onclick="addToOrder({{rettID}},{{prisw}})">Legg til i bestilling</button>
+                 <button class="ourbutton" id="Btn{{rettID}}" onclick="addToOrder({{rettID}},{{prisw}},{{atrib}})">Legg til i bestilling</button>
 
                </div>
              </div>
@@ -56,10 +55,8 @@
     //  alert('here am i');
 //  document.onload=luckyS();
 //console.log(aktivKatt);
-
-
+doheaders(catname,restname,loremips);
 console.log(cat);
-
 function doheaders(a,b,c){
   document.getElementById("myheader").innerHTML =a;
   document.getElementById("toph3ader").innerHTML = b;
@@ -73,7 +70,6 @@ restname=bb;
   console.log(bb);
   console.log("Did navheader name");
 }
-
   function luckyS (aa){
     catname = aa;
 //document.getElementById("myheader").innerHTML = aa;
@@ -85,14 +81,12 @@ setTimeout(waitbit, 500);
 function waitbit(){
   console.log(catname);
 //document.getElementById("myheader").innerHTML =catname;
-
 }
   // console.log(eval("orderlist"+activeResturant));
    if (activeResturant){
 amountInOrder();
    }
 function amountInOrder(){
-
   var x = document.getElementsByClassName("thisclass");
 var i;
 for (i = 0; i < x.length; i++) {
@@ -103,8 +97,6 @@ for (i = 0; i < x.length; i++) {
      console.log(eval(thevar));
      let myPicks = eval(thevar);
  myPicks.forEach(fillList);
-
-
 }
    function fillList(list){
      console.log(list[1]);
@@ -123,11 +115,9 @@ document.getElementById(eval(`"bi${list[1]}"`)).innerHTML= " Antall i bestilling
 }
 //document.getElementById(eval(`"bi${list[1]}"`)).classList.remove(hide);
    }
-
 //console.log({{cat[0]}});
 //var orderlist= [];
 var ord3rlist{{hat}}= "the super var is here";
-
 function createshortsum(){
   console.log("creating short sum");
     document.getElementById("ordersumshort").innerHTML="";
@@ -147,39 +137,47 @@ function createshortsum(){
     }
     else{console.log("Havent picked yet");}
 }
-      function addToOrder(info,pris){
+      function addToOrder(info,pris,atrib){
         document.getElementById('title'+info).click();
         console.log("didit");
         console.log("011called");
         console.log(activeResturant+'active');
       //  alert({{cat}});
         console.log(info);
-        let andre= "ingen";
+        let theatribs = `_`;
+        if(atrib){
+        console.log(atrib);
+if (atrib===1){
         let att = document.querySelector('input[name="'+info+'-radio-inline"]:checked').value;
-        let stregth1 = document.getElementById('att1'+info).checked;
-        if (stregth1===true){
-        let stregth = document.querySelector('input[id="att1'+info+'"]:checked').value;
+        theatribs = `Styrke: ${att} `;
+}
+} else if (!atrib){
+  console.log("ingen attrib");
+          let theatribs = `_`;
+}
+      //  let stregth1 = document.getElementById('att1'+info).checked;
+  //      if (stregth1===true){
+  //      let stregth = document.querySelector('input[id="att1'+info+'"]:checked').value;
         console.log("if 01 ???");
-      }
         let verdia = document.getElementById('K'+info).value;
         let bTekst = document.getElementById('T'+info).value;
         let bTitle = document.getElementById('title'+info).innerHTML;
-        console.log(att);
-        console.log(stregth1);
-        if (stregth1===true){
-           let stregth = document.querySelector('input[id="att1'+info+'"]:checked').value;
-                 console.log("if 0222222 ???");
-        console.log(stregth);
-        andre = stregth;
-      }
+    //    console.log(att);
+    //    console.log(stregth1);
+  //      if (stregth1===true){
+      //     let stregth = document.querySelector('input[id="att1'+info+'"]:checked').value;
+  //               console.log("if 0222222 ???");
+  //      console.log(stregth);
+  //      andre = stregth;
+  //    }
         console.log(bTekst);
         console.log(verdia);
         let verdi = parseInt(verdia);
       console.log(verdi);
       let myHat = {{hat}};
-      let theatribs = `Styrke: ${att} <br> Andre valg: ${andre}`;
+    //  let theatribs = `Styrke: ${att} <br> Andre valg: ${andre}`;
       console.log(myHat+"her er asdasdasdsa");
-      let orderLine = [myHat,info,verdi,pris,bTekst,bTitle,theatribs];
+      let orderLine = [myHat,info,verdi,pris,bTekst,bTitle,theatribs,activeResturant,aRName];
 var thevar = "orderlist"+activeResturant;
 console.log(eval(thevar));
 //console.log(thevar);
@@ -188,11 +186,12 @@ console.log(eval(thevar));
     /*  let myPicks = eval(thevar);
       document.getElementsByClassName("thisclass").name = "0";
       myPicks.forEach(fillList);*/
+      console.log(eval(thevar));
       createshortsum();
       amountInOrder();
       document.getElementById('K'+info).value = 1;
       document.getElementById('T'+info).value = "";
-      document.getElementById('att1'+info).checked = false;
+    //  document.getElementById('att1'+info).checked = false;
       document.getElementById('styrk'+info).checked = true;
       }
     </script>
@@ -216,7 +215,6 @@ console.log(eval(thevar));
       };
     }
   };
-
   /* import * as javacode from '../js/online.js';
   export default {
     data: function () {
@@ -226,7 +224,6 @@ console.log(eval(thevar));
       };
     }
   };
-
   export default {
     data: function () {
       var Id = this.$route.params.id;
@@ -241,5 +238,4 @@ console.log(eval(thevar));
       };
     }
   };*/
-
 </script>

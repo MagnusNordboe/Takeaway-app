@@ -1,6 +1,7 @@
 import $$ from 'dom7';
 import Framework7 from 'framework7/framework7.esm.bundle.js';
 
+import firebaseui from 'firebaseui';
 import * as database from './database';
 import {db} from './database';
 // Import F7 Styles
@@ -13,6 +14,7 @@ import '../css/app.css';
 import cordovaApp from './cordova-app.js';
 // Import Routes
 import routes from './routes.js';
+
 
 //Prepare for framework7 init
 var app;
@@ -42,30 +44,30 @@ function initializeFramework7(restaurants){
   // App root data
   data: function () {
     return {
-      muligekategorier:'["Alle", "Sushi", "Burger", "Pizza", "Kebab"]',
+      muligekategorier:'["Alle", "Sushi", "Burger", "Pizza", "Kebab", "Indisk"]',
       menye: [{
         id: '31',
         meny: [{
           rettID: '1',
-          navn: "Flying fish",
-          besk: "digg burger, supergod snerr liom",
-          atrib: "1",
+          navn: "Rettnavn",
+          besk: "Beskrivelse av produktet kan tilpasses etter ønske og kan være ganske lang. her er det forventet å liste informasjon om retten og valg for retten",
+          atrib: "0",
           prisw: '100'
         }, {
           rettID: '2',
-          navn: "Fly fish",
-          besk: '"digg burg122222222222222222222supergod snerr liom"',
+          navn: "Rettnavn",
+          besk: '"Beskrivelse av produktet kan tilpasses etter ønske og kan være ganske lang. her er det forventet å liste informasjon om retten og valg for retten"',
           prisw: '120'
         }, {
           rettID: '3',
-          navn: "Catch and release",
-          besk: '"digg 33333333333burger, supergod snerr liom"',
+          navn: "Rettnavn",
+          besk: '"Beskrivelse av produktet kan tilpasses etter ønske og kan være ganske lang. her er det forventet å liste informasjon om retten og valg for retten"',
           atrib: "2",
           prisw: '140'
         }, {
           rettID: '4',
-          navn: '"Glipper"',
-          besk: '"di44444g burger, supergod snerr liom"',
+          navn: '"Rettnavn"',
+          besk: '"Beskrivelse av produktet kan tilpasses etter ønske og kan være ganske lang. her er det forventet å liste informasjon om retten og valg for retten"',
           atrib: "1",
           prisw: '150'
         },
@@ -74,26 +76,26 @@ function initializeFramework7(restaurants){
         id: '32',
         meny: [{
           rettID: '1',
-          navn: "Pizzarg",
-          besk: "digg burger, supergod snerr liom",
+          navn: "Annet rettnavn",
+          besk: "Beskrivelse av produktet kan tilpasses etter ønske og kan være ganske lang. her er det forventet å liste informasjon om retten og valg for retten",
           atrib: "1",
           prisw: '100'
         }, {
           rettID: '2',
-          navn: "Pinabble",
-          besk: '"digg burg122222222222222222222supergod snerr liom"',
+          navn: "Annet rettnavn",
+          besk: '"Beskrivelse av produktet kan tilpasses etter ønske og kan være ganske lang. her er det forventet å liste informasjon om retten og valg for retten"',
           atrib: "2",
           prisw: '120'
         }, {
           rettID: '3',
-          navn: "sjoritsto",
-          besk: '"digg 33333333333burger, supergod snerr liom"',
+          navn: "Annet rettnavn",
+          besk: '"Beskrivelse av produktet kan tilpasses etter ønske og kan være ganske lang. her er det forventet å liste informasjon om retten og valg for retten"',
           atrib: "1",
           prisw: '140'
         }, {
           rettID: '4',
-          navn: "oppkuttet vegetarianer",
-          besk: '"di44444g burger, supergod snerr liom"',
+          navn: "Annet rettnavn",
+          besk: '"Beskrivelse av produktet kan tilpasses etter ønske og kan være ganske lang. her er det forventet å liste informasjon om retten og valg for retten"',
           atrib: "2",
           prisw: '150'
         },
@@ -270,6 +272,130 @@ function initializeFramework7(restaurants){
           prisw: '150'
         },
         ],
+      }, {
+        id: '51',
+        meny: [{
+          rettID: '1',
+          navn: "Rullekebab",
+          besk: "Eksempelteskt",
+          atrib: "1",
+          prisw: '100'
+        }, {
+          rettID: '2',
+          navn: "Kebab i pita",
+          besk: '"digg basdasdiom"',
+          atrib: "1",
+          prisw: '120'
+        }, {
+          rettID: '3',
+          navn: "grønsaker",
+          besk: '"digg 33333333333burger, supergod snerr liom"',
+          atrib: "1",
+          prisw: '140'
+        }, {
+          rettID: '4',
+          navn: '"føtter"',
+          besk: '"di44444g burger, supergod snerr liom"',
+          atrib: "1",
+          prisw: '150'
+        },
+        ],
+      }, {
+        id: '52',
+        meny: [{
+          rettID: '1',
+          navn: "Pizzarg",
+          besk: "digg burger, supergod snerr liom",
+          prisw: '100'
+        }, {
+          rettID: '2',
+          navn: "Pinabble",
+          besk: '"digg burg122222222222222222222supergod snerr liom"',
+          prisw: '120'
+        }, {
+          rettID: '3',
+          navn: "sjoritsto",
+          besk: '"digg 33333333333burger, supergod snerr liom"',
+          prisw: '140'
+        }, {
+          rettID: '4',
+          navn: "oppkuttet vegetarianer",
+          besk: '"di44444g burger, supergod snerr liom"',
+          prisw: '150'
+        },
+        ],
+      }, {
+        id: '53',
+        meny: [{
+          rettID: '1',
+          navn: "BrugBurg",
+          besk: "digg burger, supergod snerr liom",
+          prisw: '100'
+        }, {
+          rettID: '2',
+          navn: "Basdasdg",
+          besk: '"digg burg122222222222222222222supergod snerr liom"',
+          prisw: '120'
+        }, {
+          rettID: '3',
+          navn: "Bruger HEEY",
+          besk: '"digg 33333333333burger, supergod snerr liom"',
+          prisw: '140'
+        }, {
+          rettID: '4',
+          navn: "Pizza Burger",
+          besk: '"di44444g burger, supergod snerr liom"',
+          prisw: '150'
+        },
+        ],
+      }, {
+        id: '54',
+        meny: [{
+          rettID: '1',
+          navn: "br33ennevin",
+          besk: "digg burger, supergod snerr liom",
+          prisw: '100'
+        }, {
+          rettID: '2',
+          navn: "kon33jakk",
+          besk: '"digg burg122222222222222222222supergod snerr liom"',
+          prisw: '120'
+        }, {
+          rettID: '3',
+          navn: "vod33ka",
+          besk: '"digg 33333333333burger, supergod snerr liom"',
+          prisw: '140'
+        }, {
+          rettID: '4',
+          navn: "lique33r",
+          besk: '"di44444g burger, supergod snerr liom"',
+          prisw: '150'
+        },
+        ],
+      }, {
+        id: '55',
+        meny: [{
+          rettID: '1',
+          navn: "br33ennevin",
+          besk: "digg burger, supergod snerr liom",
+          prisw: '100'
+        }, {
+          rettID: '2',
+          navn: "kon33jakk",
+          besk: '"digg burg122222222222222222222supergod snerr liom"',
+          prisw: '120'
+        }, {
+          rettID: '3',
+          navn: "vod33ka",
+          besk: '"digg 33333333333burger, supergod snerr liom"',
+          prisw: '140'
+        }, {
+          rettID: '4',
+          navn: "lique33r",
+          besk: '"di44444g burger, supergod snerr liom"',
+          prisw: '150'
+        },
+        ],
       },],
 
       user: {
@@ -382,29 +508,30 @@ function initializeFramework7(restaurants){
           img: '/static/dmoimg/Kebabish1.png',
           description: 'Expedita sequi perferendis quod illum pariatur aliquam, alias laboriosam! Vero blanditiis placeat, mollitia necessitatibus reprehenderit. Labore dolores amet quos, accusamus earum asperiores officiis assumenda optio architecto quia neque, quae eum.',
           adresse: 'Sentrum 4 48179',
-              restkategori:'Burger',
-          retter: [{
-            rettID: `'1'`,
-            navn: "BrudasdasdBurg",
-            besk: `"digg dasbasdasurger, supergod snerr liom"`,
-            prisw: '130'
-          }, {
-            rettID: `'2'`,
-            navn: "xcvxcvbxcvbxcvzxcvxcvxcvg",
-            besk: `'"dasdsadasdsadasdas snerr liom"'`,
-            prisw: '120'
-          }, {
-            rettID: `'3'`,
-            navn: "werwr4334t34EEY",
-            besk: `'"digg 33333333333burger, supergod snerr liom"'`,
-            prisw: '140'
-          }, {
-            rettID: `'4'`,
-            navn: "Pizza 2343242342342342342342342342343242342er",
-            besk: `'"di44444g burger, supergod snerr liom"'`,
-            prisw: '150'
-          }
-          ]
+              restkategori:'Burger Kebab Pizza Indisk',
+              categorier: [{
+                catid: '51',
+                catnavn: "Kebab",
+    
+              },
+              {
+                catnavn: "Hamburger",
+                catid: '52',
+    
+              },
+              {
+                catnavn: "Pizza",
+                catid: '53',
+              },
+              {
+                catnavn: "Indisk",
+                catid: '54',
+              },
+              {
+                catnavn: "Drikke",
+                catid: '55',
+              }
+              ]
         }
       ]
 
@@ -437,7 +564,7 @@ function initializeFramework7(restaurants){
     overlay: Framework7.device.cordova && Framework7.device.ios || 'auto',
     iosOverlaysWebView: true,
     androidOverlaysWebView: false,
-  },
+},
   on: {
     init: function () {
       var f7 = this;
@@ -449,6 +576,28 @@ function initializeFramework7(restaurants){
   },
 });
 }
+
+
+//UI INIT
+/*var ui = new firebaseui.auth.AuthUI(database.auth);
+ui.start('#authDisplay', {
+  callbacks: {
+    signInSuccessWithAuthResult: function(authResult, redirectUrl){
+      ui.reset();
+      console.log(authResult);
+      //app.view.router.navigate('./backend.html');
+      return false;  
+    }
+  },
+  signInOptions: [
+    {
+    provider: database.authKeys.emailAuth,
+    requireDisplayName: false
+    }
+  ],
+  //signInSuccessUrl: '/backendresturant/',
+  credentialHelper: 'none'
+}); */
 
 //Gjør framework7 tilgjengelig i window
 window.app = app;

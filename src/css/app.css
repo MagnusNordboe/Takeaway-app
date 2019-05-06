@@ -11,11 +11,21 @@ background-color: #fbffe127!important;
       box-shadow: 2px 4px #fbfbFB;
       margin: 1%;
 }
-.show2.hide{
-
+.catlist{
+      padding-top: 1%;
 }
+
 .showme{
   display: none!important;
+}
+.hides1{
+  display: block;
+}
+.hides2{
+  display: none;
+}
+.hides{
+  display: none;
 }
 
 .giveM{

@@ -3,13 +3,17 @@
 
 
   // Initialize Firebase
-  import firebase from 'firebase'
+  import firebase from 'firebase/'
+  import { reject } from 'q';
   import config from '../config';
-import { reject } from 'q';
-  let firebaseApp = firebase.initializeApp(config);
-  const functions = firebase.functions(firebaseApp);
+  export let firebaseApp = firebase.initializeApp(config);
+  export let auth = firebase.auth();
+  export const functions = firebase.functions(firebaseApp);
   const db = firebase.firestore(firebaseApp);
-
+  export let authKeys = {
+      emailAuth: firebase.auth.EmailAuthProvider.PROVIDER_ID,
+      googleAuth: firebase.auth.GoogleAuthProvider.PROVIDER_ID
+}
 
 export function getMagnusMeny() {
   console.log("start getfromdatabase");
@@ -58,25 +62,26 @@ export function getTakeoutMenu(restaurant){
     })
 }
 
-export function addToOrder(restaurant, order){
-    const route = db.collection('Restauranter').doc(restaurant).collection('Bestillinger').doc(order.name);
-    route.set(order);   
+export function addToOrder(order){
+    let restaurant = order[8];
+    
+    order = JSON.stringify(order);
+    const route = db.collection('Restauranter').doc(restaurant).collection('Bestillinger').add(order);
+    route.set(order);
 }
 
-export function updateOrders(deleted, currentOrders, restaurant) {
+export function updateOrders(deleted = null, currentOrders = null) {
     let data = {
     //Deleted = array med alle bestillinger som har blit slettet siden forrige gang funksjonen ble kalt.
         deleted: deleted,
     //currentOrders = array med alle aktive bestillinger lokalt i appen til restauranten
         currentOrders:currentOrders,
     //restaurantCtx = objekt med informasjon om restauranten som sendte request. 
-        ctx: {
-            restaurant: restaurant
-        }
     };
+
     let updateOrdersCloudFunction = functions.httpsCallable('updateOrders');
     updateOrdersCloudFunction(data).then((result) => {
         let newOrders = result.data;
-        console.log(newOrders);
+        return newOrders;
     })
 }
