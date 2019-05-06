@@ -85,6 +85,7 @@
         bybtn.innerHTML = `<button onclick="sayhu()" href="#" type="button" class="ourbutton" name="button">Bestill</button>
 `;
           document.getElementById("biller").appendChild(bybtn);
+
       }
       function removefromorder(tall){
         console.log(tall);
@@ -92,6 +93,7 @@
         theList.splice(tall, 1,);
         console.log(theList);
         showtheBill();
+        createshortsum();
       }
       function sayhu(){
         console.log("sayhu");
@@ -112,12 +114,12 @@
       console.log(link);
     //  setTimeout(luckyS(`${cat}`), 1100);
     //  restNavn("{{resturant.title}}");
-      //window.href = link;
+    //  window.href = link;
 
       var catname= `${cat}`;
       var restname=document.getElementById("restHead").innerHTML;
-      let loremips= "hey hey beskrivelse";
-        doheaders(catname,restname,loremips);
+      var loremips= "hey hey beskrivelse";
+      doheaders(catname,restname,loremips);
       console.log(catname);
       console.log(restname);
     }
