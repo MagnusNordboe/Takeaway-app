@@ -1,6 +1,6 @@
 <template>
   <div class="page" data-name="resturantcatalog">
-    <div class="navbar ourthemeB">
+    <div class="navbar">
       <div class="navbar-inner sliding ourthemeB">
         <div class="left">
           <a href="#" class="link back">
@@ -25,7 +25,7 @@
       </div>
 <div class="list accordion-list ourthemeB">
   <p class="giveM">Kategoreier:</p>
-    <ul>
+    <ul class=" catlist">
          {{#each resturant.categorier}}
               <li class="ourthemeB giveM ourlist">
     <a id="id{{catnavn}}" name="{{catnavn}}" onclick="activeCAT('{{catnavn}}',{{catid}})" href="/cat/{{catid}}/" class="item-link list-button">{{catnavn}}</a>

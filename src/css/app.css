@@ -11,14 +11,20 @@ background-color: #fbffe127!important;
       box-shadow: 2px 4px #fbfbFB;
       margin: 1%;
 }
+.catlist{
+      padding-top: 1%;
+}
 
 .showme{
   display: none!important;
 }
-.hide1{
+.hides1{
   display: block;
 }
-.hide2{
+.hides2{
+  display: none;
+}
+.hides{
   display: none;
 }
 

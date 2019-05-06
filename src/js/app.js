@@ -47,25 +47,25 @@ function initializeFramework7(restaurants){
         id: '31',
         meny: [{
           rettID: '1',
-          navn: "Flying fish",
-          besk: "digg burger, supergod snerr liom",
-          atrib: "1",
+          navn: "Rettnavn",
+          besk: "Beskrivelse av produktet kan tilpasses etter ønske og kan være ganske lang. her er det forventet å liste informasjon om retten og valg for retten",
+          atrib: "0",
           prisw: '100'
         }, {
           rettID: '2',
-          navn: "Fly fish",
-          besk: '"digg burg122222222222222222222supergod snerr liom"',
+          navn: "Rettnavn",
+          besk: '"Beskrivelse av produktet kan tilpasses etter ønske og kan være ganske lang. her er det forventet å liste informasjon om retten og valg for retten"',
           prisw: '120'
         }, {
           rettID: '3',
-          navn: "Catch and release",
-          besk: '"digg 33333333333burger, supergod snerr liom"',
+          navn: "Rettnavn",
+          besk: '"Beskrivelse av produktet kan tilpasses etter ønske og kan være ganske lang. her er det forventet å liste informasjon om retten og valg for retten"',
           atrib: "2",
           prisw: '140'
         }, {
           rettID: '4',
-          navn: '"Glipper"',
-          besk: '"di44444g burger, supergod snerr liom"',
+          navn: '"Rettnavn"',
+          besk: '"Beskrivelse av produktet kan tilpasses etter ønske og kan være ganske lang. her er det forventet å liste informasjon om retten og valg for retten"',
           atrib: "1",
           prisw: '150'
         },
@@ -74,26 +74,26 @@ function initializeFramework7(restaurants){
         id: '32',
         meny: [{
           rettID: '1',
-          navn: "Pizzarg",
-          besk: "digg burger, supergod snerr liom",
+          navn: "Annet rettnavn",
+          besk: "Beskrivelse av produktet kan tilpasses etter ønske og kan være ganske lang. her er det forventet å liste informasjon om retten og valg for retten",
           atrib: "1",
           prisw: '100'
         }, {
           rettID: '2',
-          navn: "Pinabble",
-          besk: '"digg burg122222222222222222222supergod snerr liom"',
+          navn: "Annet rettnavn",
+          besk: '"Beskrivelse av produktet kan tilpasses etter ønske og kan være ganske lang. her er det forventet å liste informasjon om retten og valg for retten"',
           atrib: "2",
           prisw: '120'
         }, {
           rettID: '3',
-          navn: "sjoritsto",
-          besk: '"digg 33333333333burger, supergod snerr liom"',
+          navn: "Annet rettnavn",
+          besk: '"Beskrivelse av produktet kan tilpasses etter ønske og kan være ganske lang. her er det forventet å liste informasjon om retten og valg for retten"',
           atrib: "1",
           prisw: '140'
         }, {
           rettID: '4',
-          navn: "oppkuttet vegetarianer",
-          besk: '"di44444g burger, supergod snerr liom"',
+          navn: "Annet rettnavn",
+          besk: '"Beskrivelse av produktet kan tilpasses etter ønske og kan være ganske lang. her er det forventet å liste informasjon om retten og valg for retten"',
           atrib: "2",
           prisw: '150'
         },
