@@ -14,7 +14,21 @@ background-color: #fbffe127!important;
 .catlist{
       padding-top: 1%;
 }
+.ordercard{
 
+}
+.gronn{
+  background-color: darkgreen;
+}
+.gul{
+  background-color: #e0b765;
+}
+.bla{
+  background-color: #223e4a;
+}
+.gusj{
+  background-color: #aed13e;
+}
 .showme{
   display: none!important;
 }

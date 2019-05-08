@@ -542,7 +542,7 @@ function initializeFramework7(restaurants){
     helloWorld: function () {
       app.dialog.alert('Hello World!');
     },
-    updateOrders: function() {
+    updateOrders: function(restT) {
       let data = {
         //Deleted = array med alle bestillinger som har blit slettet siden forrige gang funksjonen ble kalt.
             deleted: null,
@@ -555,9 +555,9 @@ function initializeFramework7(restaurants){
         return updateOrdersCloudFunction(data).then((result) => {
           console.log(result);
             let newOrders = result.data;
-            return newOrders;
+            return newOrders;"Kebabish (demo)"
         }); */
-        return db.collection('Restauranter').doc("Kebabish (demo)").collection('Bestillinger').get().then(querySnapshot => {
+        return db.collection('Restauranter').doc(restT).collection('Bestillinger').get().then(querySnapshot => {
           let serverSideOrders = [];
 
             querySnapshot.docs.forEach((element) => {

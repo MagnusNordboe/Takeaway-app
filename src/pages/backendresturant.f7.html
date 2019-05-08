@@ -22,36 +22,37 @@
       <div id="header" class="block">
 
       </div>
-<div id="nyeDIV" class="">
-  <button id="newIbtn" onclick="getNewOrdersFromDb({{resturant.id}})" type="button" name="button" class="ourbutton">
-</div>
+
 <div class="card">
-  <div class="card-header">Nye bestillinger</div>
+  <div class="card-header  gronn">Nye bestillinger</div>
 <div id="nyODIV" class="card-content card-content-padding">
 </div>
 </div>
 <div class="card">
-  <div class="card-header">
+  <div class="card-header gul">
 Under produksjon
 </div>
 <div id="produksjonDIV"  class="card-content card-content-padding">
 </div>
 </div>
 <div class="card">
-  <div class="card-header">
+  <div class="card-header bla">
 Klar til henting
 </div>
 <div id="ferdigDIV"  class="card-content card-content-padding">
 </div>
 </div>
 <div class="card">
-  <div class="card-header">
+  <div class="card-header gusj">
 Utførte bestillinger
 </div>
 <div id="utforteDIV"  class="card-content card-content-padding">
 </div>
 </div>
 
+    </div>
+    <div id="nyeDIV" class="block">
+      <button id="newIbtn" onclick="emptyfields();getNewOrdersFromDb({{resturant.id}})" type="button" name="button" class="">
     </div>
 
 
@@ -219,7 +220,8 @@ let timer = setInterval(getNewOrdersFromDb(), 3000);
 function getNewOrdersFromDb(tst){
   console.log("serverSideOrders");
   console.log(tst);
-  window.app.methods.updateOrders().then(orders =>{
+  let titleR =  "{{resturant.title}}";
+  window.app.methods.updateOrders(titleR).then(orders =>{
   console.log(orders);
 console.log("rtst");
 //heyHEYhey(orders);
@@ -231,7 +233,7 @@ retest(orders);
 }
   var newlist=[];
 function retest(inn){
-
+newlist=[];
   console.log(inn);
   console.log(inn[0].order);
   for (a=0; a<inn.length; a++){
@@ -259,13 +261,12 @@ function emptyfields(){
         document.getElementById("utforteDIV").innerHTML="";
 }
 function heyHEYhey(or, index){
-
   console.log(or);
   console.log(or[0]);
   var alement = document.createElement("ul");
-  alement.classList += "ordercard";
+  alement.classList += "ordercard card";
   alement.innerHTML = `
-          <div class="item-title"> Referansekode ${or[0][2]}</div>
+          <div class="item-title"> Referansekode: <h3> ${or[0][2]} </h3></div>
           <div class="textcolloring">
             <a class="textcolloring"> Antall retter:  ${or[0][4]}</a><br><a  class="textcolloring">  Sum: ${or[0][3]} Kr</a>
           </div>
@@ -282,10 +283,11 @@ function heyHEYhey(or, index){
     <hr>
   <a href="" class="item-link item-content textcolloring">
       <div class="item-inner">
-          <div class="item-title">${or[a][5]}</div>
+          <div class="item-title"> <a class="head textcolloring">${or[a][5]}</a>  <a class="green"> Antall: ${or[a][2]}</a><a  class="green">     Total: ${sum} Kr </a>
+        </div>
           <div class="textcolloring">
-            <a class="green"> Antall: ${or[a][2]}</a><a  class="green">  Sum: ${sum} Kr </a><a  class="textcolloring">"${text}"  ${or[a][6]} </a>
-          </div>
+            <a  class="textcolloring">"${text}"  ${or[a][6]} </a>
+            </div>
       </div>
   </a>
   <div class="accordion-item-content"><p> ${text}</p><p>Valg: </p><p> ${or[a][6]}</p></div>
@@ -297,7 +299,7 @@ alement.appendChild(element);
 
 if(or[0][5]===0){
   let doer = document.createElement("DIV");
-  doer.innerHTML= `</div> <div class="card-footer"><a onclick="changestatus(${index},${1})">Send til produksjon</a>`;
+  doer.innerHTML= `</div> <div class="card-footer"><a onclick="changestatus(${index},${1})">Send til produksjon</a> <hr>`;
   alement.appendChild(doer);
   //  alement.innerHTML += `</div>`;
   document.getElementById("nyODIV").appendChild(alement);
