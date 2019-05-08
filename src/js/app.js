@@ -512,12 +512,12 @@ function initializeFramework7(restaurants){
               categorier: [{
                 catid: '51',
                 catnavn: "Kebab",
-    
+
               },
               {
                 catnavn: "Hamburger",
                 catid: '52',
-    
+
               },
               {
                 catnavn: "Pizza",
@@ -548,16 +548,16 @@ function initializeFramework7(restaurants){
             deleted: null,
         //currentOrders = array med alle aktive bestillinger lokalt i appen til restauranten
             currentOrders:null,
-        //restaurantCtx = objekt med informasjon om restauranten som sendte request. 
+        //restaurantCtx = objekt med informasjon om restauranten som sendte request.
         };
-    
+
        /* let updateOrdersCloudFunction = database.functions.httpsCallable('updateOrders');
         return updateOrdersCloudFunction(data).then((result) => {
           console.log(result);
             let newOrders = result.data;
             return newOrders;
         }); */
-        db.collection('Restauranter').doc("Kebabish (demo)").collection('Bestillinger').get().then(querySnapshot => {
+        return db.collection('Restauranter').doc("Kebabish (demo)").collection('Bestillinger').get().then(querySnapshot => {
           let serverSideOrders = [];
 
             querySnapshot.docs.forEach((element) => {
@@ -567,16 +567,18 @@ function initializeFramework7(restaurants){
                // element.ref.delete();
             });
             console.log(serverSideOrders);
-            
+
             return serverSideOrders;
         });
     },
-    addToOrder: function(order) {
-      let restaurant = order[8];
+    addToOrder: function(ttl, order) {
+    //  let restaurant = order[0][0];
+    console.log(ttl);
+    console.log(order);
+    let restaurant = ttl;
       console.log('navn på restaurant for addToOrder: ' + restaurant);
-      order = {
-        jsonstring: JSON.stringify(order)
-      };
+    //  order = {  jsonstring: JSON.stringify(order)  };
+    order = { order };
       const route = db.collection('Restauranter').doc(restaurant).collection('Bestillinger');
       route.add(order).then(document =>{
         console.log("Dokument laget at AddToOrder: ",document);
@@ -626,7 +628,7 @@ ui.start('#authDisplay', {
       ui.reset();
       console.log(authResult);
       //app.view.router.navigate('./backend.html');
-      return false;  
+      return false;
     }
   },
   signInOptions: [

@@ -118,7 +118,9 @@ document.getElementById(eval(`"bi${list[1]}"`)).innerHTML= " Antall i bestilling
 //console.log({{cat[0]}});
 //var orderlist= [];
 var ord3rlist{{hat}}= "the super var is here";
+var mycarriedsum = "";
 function createshortsum(){
+
   console.log("creating short sum");
     document.getElementById("ordersumshort").innerHTML="";
     let orders =  eval("orderlist"+activeResturant);
@@ -134,6 +136,7 @@ function createshortsum(){
       myP.innerHTML = `Du har ${aoc} rett${fler} i handlekurven`;
       document.getElementById("ordersumshort").appendChild(myP);
       document.getElementById("visbill").classList.remove("showme");
+      mycarriedsum = aoc;
     }
     else{console.log("Havent picked yet");}
 }
@@ -180,7 +183,7 @@ if (atrib===1){
       let orderLine = [myHat,info,verdi,pris,bTekst,bTitle,theatribs,activeResturant,aRName];
 var thevar = "orderlist"+activeResturant;
 
-window.app.methods.addToOrder(orderLine);
+//window.app.methods.addToOrder(orderLine);
 
 console.log(eval(thevar));
 //console.log(thevar);

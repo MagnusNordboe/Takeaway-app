@@ -34,6 +34,10 @@ background-color: #fbffe127!important;
 .marginer{
   margin:8%;
 }
+.head{
+  font-size: 125%;
+  margin: 4%;
+}
 /*headerbilde
 
   height: auto;

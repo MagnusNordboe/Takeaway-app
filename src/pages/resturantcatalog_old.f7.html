@@ -45,9 +45,20 @@
         </div>
       </div>
     </div>
+    <div class="popup popup-refword ">
+      <div class="block ourthemeB">
 
+        <!-- Close Popup -->
+        <p >Ditt referansenummer<a class="link popup-close rightB textcolloring" href="#">X Steng</a></p>
+        <div id="billerword" class="ourthemeB">
+<input id="randomword" type="text" name="" value="H3n73k0d3">
+        </div>
+        <button onclick="sayhu()" href="#" type="button" class="ourbutton link popup-open" name="button" data-popup=".popup-refword">Godkjenn Betaling</button>
+      </div>
+    </div>
 
     <script type="text/javascript">
+      var sendsum = "";
       function showtheBill(){
           document.getElementById("biller").innerHTML = "";
         theList = orderlist{{resturant.id}};
@@ -72,13 +83,15 @@
     `;
         orderSum+=sum;
         document.getElementById("biller").appendChild(element);
+        sendsum = orderSum;
       }
+
       //[myHat,info,verdi,pris,bTekst,bTitle];<a> Kategori: ${theList[a][0]}   </a><a>Meny element: ${theList[a][1]}</a><a> Antall: ${theList[a][2]}</a><a>  Sum: ${sum}</a>
       let totalSum = document.createElement("div");
       totalSum.innerHTML = `  <hr> Total: ${orderSum}   <hr>`;
         document.getElementById("biller").appendChild(totalSum);
         let bybtn= document.createElement("div");
-        bybtn.innerHTML = `<button onclick="sayhu()" href="#" type="button" class="ourbutton" name="button">Bestill</button>
+        bybtn.innerHTML = `<button href="#" type="button" class="ourbutton link popup-open" name="button" data-popup=".popup-refword">Bestill</button>
 `;
           document.getElementById("biller").appendChild(bybtn);
       }
@@ -92,7 +105,19 @@
       }
       function sayhu(){
         console.log("sayhu");
-        console.log(theList);
+        let ordersmm = `${mycarriedsum}`;
+        let theListH =theList;
+var d = new Date();
+        let timee = d.getTime();
+      //  let houre = getHours();
+        let loger = document.getElementById("randomword").value;
+        let ttrn = "{{resturant.title}}";
+        let statusN = 0;
+        theListH.unshift([ttrn, timee, loger, sendsum, ordersmm, statusN])
+        console.log(theListH);
+        console.log(loger);
+        let jlist = JSON.stringify(theListH);
+        window.app.methods.addToOrder("{{resturant.title}}", jlist);
       }
     //  console.log(ord3rlist1);
   //  var aktivKatt;

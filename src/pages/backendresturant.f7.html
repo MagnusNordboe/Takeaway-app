@@ -15,9 +15,46 @@
         <div style="background-image:url({{resturant.img}})" class="card-header align-items-flex-end"></div>
       <div class="block-title"><b>{{resturant.title}}</b></div>
       <div class="block">
-        
+
       </div>
     <a class="link popup-open" href="#" data-popup=".popup-view"><b>Rediger resturant</b></a>
+    <div class="block">
+      <div id="header" class="block">
+
+      </div>
+<div id="nyeDIV" class="">
+  <button id="newIbtn" onclick="getNewOrdersFromDb({{resturant.id}})" type="button" name="button" class="ourbutton">
+</div>
+<div class="card">
+  <div class="card-header">Nye bestillinger</div>
+<div id="nyODIV" class="card-content card-content-padding">
+</div>
+</div>
+<div class="card">
+  <div class="card-header">
+Under produksjon
+</div>
+<div id="produksjonDIV"  class="card-content card-content-padding">
+</div>
+</div>
+<div class="card">
+  <div class="card-header">
+Klar til henting
+</div>
+<div id="ferdigDIV"  class="card-content card-content-padding">
+</div>
+</div>
+<div class="card">
+  <div class="card-header">
+Utførte bestillinger
+</div>
+<div id="utforteDIV"  class="card-content card-content-padding">
+</div>
+</div>
+
+    </div>
+
+
     <div class="popup popup-view ">
       <div class="block ourthemeB">
           <p >Till bestilling<a class="link popup-close rightB" href="#">X Steng</a></p>
@@ -179,18 +216,114 @@ totalSum.innerHTML = `Total: ${orderSum}`;
 
 let timer = setInterval(getNewOrdersFromDb(), 3000);
 
-function getNewOrdersFromDb(){
+function getNewOrdersFromDb(tst){
+  console.log("serverSideOrders");
+  console.log(tst);
   window.app.methods.updateOrders().then(orders =>{
-    console.log(orders);
-
+  console.log(orders);
+console.log("rtst");
+//heyHEYhey(orders);
+//var orderss = JSON.parse(orders);
+//orderss.forEach(heyHEYhey);
+retest(orders);
   });
-  
-}
 
+}
+  var newlist=[];
+function retest(inn){
+
+  console.log(inn);
+  console.log(inn[0].order);
+  for (a=0; a<inn.length; a++){
+  let hrere = JSON.parse(inn[a].order);
+  newlist.push(hrere);
+  console.log(hrere);
+}
+console.log(newlist);
+  emptyfields();
+newlist.forEach(heyHEYhey);
+}
+function changestatus(index,to){
+  console.log("changestauts"+index+"till   :  "+to);
+  newlist[index][0][5]=to;
+  if (to===4){
+    delete newlist[index];
+  }
+  emptyfields();
+  newlist.forEach(heyHEYhey);
+}
+function emptyfields(){
+  document.getElementById("nyODIV").innerHTML="";
+    document.getElementById("produksjonDIV").innerHTML="";
+      document.getElementById("ferdigDIV").innerHTML="";
+        document.getElementById("utforteDIV").innerHTML="";
+}
+function heyHEYhey(or, index){
+
+  console.log(or);
+  console.log(or[0]);
+  var alement = document.createElement("ul");
+  alement.classList += "ordercard";
+  alement.innerHTML = `
+          <div class="item-title"> Referansekode ${or[0][2]}</div>
+          <div class="textcolloring">
+            <a class="textcolloring"> Antall retter:  ${or[0][4]}</a><br><a  class="textcolloring">  Sum: ${or[0][3]} Kr</a>
+          </div>
+
+`;
+  for  (a=1; a<or.length; a++){
+    console.log(or[a]);
+  let orderSum = 0;
+    let sum=or[a][2]*or[a][3];
+    let text = or[a][4];
+  var element = document.createElement("ul");
+  element.classList += "accordion-item";
+  element.innerHTML = `
+    <hr>
+  <a href="" class="item-link item-content textcolloring">
+      <div class="item-inner">
+          <div class="item-title">${or[a][5]}</div>
+          <div class="textcolloring">
+            <a class="green"> Antall: ${or[a][2]}</a><a  class="green">  Sum: ${sum} Kr </a><a  class="textcolloring">"${text}"  ${or[a][6]} </a>
+          </div>
+      </div>
+  </a>
+  <div class="accordion-item-content"><p> ${text}</p><p>Valg: </p><p> ${or[a][6]}</p></div>
+`;
+orderSum+=sum;
+alement.appendChild(element);
+  }
+
+
+if(or[0][5]===0){
+  let doer = document.createElement("DIV");
+  doer.innerHTML= `</div> <div class="card-footer"><a onclick="changestatus(${index},${1})">Send til produksjon</a>`;
+  alement.appendChild(doer);
+  //  alement.innerHTML += `</div>`;
+  document.getElementById("nyODIV").appendChild(alement);
+}else if(or[0][5]===1){
+  let doer = document.createElement("DIV");
+  doer.innerHTML= `</div> <div class="card-footer"><a onclick="changestatus(${index},${2})">Klar til levering</a>`;
+  alement.appendChild(doer);
+  document.getElementById("produksjonDIV").appendChild(alement);
+}
+else if(or[0][5]===2){
+  let doer = document.createElement("DIV");
+  doer.innerHTML= `</div> <div class="card-footer"><a onclick="changestatus(${index},${3})">Hentet</a>`;
+  alement.appendChild(doer);
+  document.getElementById("ferdigDIV").appendChild(alement);
+}
+else if(or[0][5]===3){
+  let doer = document.createElement("DIV");
+  doer.innerHTML= `</div> <div class="card-footer"><a onclick="changestatus(${index},${4})">Slett fra listen</a>`;
+  alement.appendChild(doer);
+  document.getElementById("utforteDIV").appendChild(alement);
+}
+}
 
 //For å lage ny bestilling modal. Tar inn et bestillings array
 function createOrderModal(order){
-  
+
 }
 
     </script>
