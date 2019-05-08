@@ -557,7 +557,7 @@ function initializeFramework7(restaurants){
             let newOrders = result.data;
             return newOrders;
         }); */
-        db.collection('Restauranter').doc("Kebabish (demo)").collection('Bestillinger').get().then(querySnapshot => {
+        return db.collection('Restauranter').doc("Kebabish (demo)").collection('Bestillinger').get().then(querySnapshot => {
           let serverSideOrders = [];
 
             querySnapshot.docs.forEach((element) => {
