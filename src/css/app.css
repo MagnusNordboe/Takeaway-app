@@ -17,6 +17,18 @@ background-color: #fbffe127!important;
 .ordercard{
 
 }
+@media only screen and (min-width: 1080px) {
+  .page {
+    max-width: 1080px;
+    align-self: center;
+  }
+}
+@media only screen and (min-width: 1080px) {
+  body {
+    background-color: lightblue;
+    align-content: center;
+  }
+}
 .gronn{
   background-color: darkgreen;
 }
