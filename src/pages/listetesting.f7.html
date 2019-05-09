@@ -2,22 +2,22 @@
   <div class="page" data-name="rTester">
     <div class="navbar">
         <div class="navbar-inner ourthemeB">
-  
-          <div id="oursmallhead" class="title sliding ourthemeB"><a class="textcolloring" href="/">Grimstad</a> / <a href="#"  class="textcolloring popup-open" onclick="bbt()" data-popup=".popup-chocat">Take out</a><a  class="textcolloring"  href="#" id="atoch"></a></div>
-  
-  
+
+          <div id="oursmallhead" class="title sliding ourthemeB"><a class="textcolloring" href="/">Grimstad</a> / <a href="#"  class="textcolloring popup-open" onclick="bbt()" data-popup=".popup-chocat">Take out</a><a  class="textcolloring  popup-open"  href="#" id="atoch" data-popup=".popup-chocat"></a></div>
+
+
         </div>
       </div>
     <div class="page-content ourthemeB">
-  
+
           <div class="list media-list ourthemeB">
           <div class="ourthemeB">
-  
+
             {{#each resturants}}
             <div class="restu {{restkategori}} card demo-card-header-pic">
           <a href="/resturantcatalog_old/{{id}}/" class="textcolloring">
-  
-  
+
+
     <div style="background-image:url({{img}})" class="card-header align-items-flex-end"></div>
     <div class="card-content card-content-padding accordion-item">
       <div class="">
@@ -29,7 +29,7 @@
                <p>{{shortdescription}}<p>
              </div>
            </div>
-  
+
       </a>
     <div  class="card-footer"><a class="button accordion-item-toggle"><center>Mer</center></a></div>
     </div>
@@ -40,17 +40,17 @@
       <div class="block">
         <div id="myFrame" src="/about/"></div>
       </div>
+
   
-      <div class="rTest">heey i placed here</div>
-  
+
   <div class="popup popup-chocat ">
     <div class="block ourthemeB">
-  
+
       <!-- Close Popup -->
-      <p >Take out kategorier<a class="link popup-close rightB" href="#">X Steng</a></p>
+      <p >Take out kategorier<a class="link popup-close rightB red" href="#">X Steng</a></p>
       <div id="katter" class="ourthemeB">
-  
-  
+
+
       </div>
     </div>
   </div>
@@ -76,7 +76,7 @@
     console.log(item);
     console.log(index);
     let divv= document.createElement("div");
-    divv.innerHTML = `<a onclick="pickcat('${index}')" class="link popup-close">${index}</a>`;
+    divv.innerHTML = `  <p class="segmented segmented-raised"><button onclick="pickcat('${index}')" class="link popup-close button textcolloring">${index}</button></P>`;
       document.getElementById("katter").appendChild(divv);
   }
   function pickcat(picked){
