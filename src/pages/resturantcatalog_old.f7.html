@@ -49,11 +49,11 @@
       <div class="block ourthemeB">
 
         <!-- Close Popup -->
-        <p >Ditt referansenummer<a class="link popup-close rightB textcolloring" href="#">X Steng</a></p>
+        <p >Ditt referansenummer<a id="ctoc" class="link popup-close rightB textcolloring" href="#">X Steng</a></p>
         <div id="billerword" class="ourthemeB">
 <input id="randomword" type="text" name="" value="H3n73k0d3">
         </div>
-        <button onclick="sayhu()" href="#" type="button" class="ourbutton link popup-open" name="button" data-popup=".popup-refword">Godkjenn Betaling</button>
+        <button onclick="sayhu();closeMe()" href="#" type="button" class="ourbutton link popup-close" name="button" data-popup=".popup-refword">Godkjenn Betaling</button>
       </div>
     </div>
 
@@ -94,6 +94,13 @@
         bybtn.innerHTML = `<button href="#" type="button" class="ourbutton link popup-open" name="button" data-popup=".popup-refword">Bestill</button>
 `;
           document.getElementById("biller").appendChild(bybtn);
+      }
+      function closeMe(){
+        document.getElementById("ctoc").click();
+       orderlist{{resturant.id}}=[];
+      theList=[];
+        showtheBill();
+        createshortsum();
       }
       function removefromorder(tall){
         console.log(tall);

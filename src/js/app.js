@@ -46,6 +46,268 @@ function initializeFramework7(restaurants){
     return {
       muligekategorier:'["Alle", "Sushi", "Burger", "Pizza", "Kebab", "Indisk"]',
       menye: [{
+        id: '11',
+        meny: [{
+          rettID: '1',
+          navn: "Rettnavn",
+          besk: "Beskrivelse av produktet kan tilpasses etter ønske og kan være ganske lang. her er det forventet å liste informasjon om retten og valg for retten",
+          atrib: "0",
+          prisw: '100'
+        }, {
+          rettID: '2',
+          navn: "Rettnavn",
+          besk: '"Beskrivelse av produktet kan tilpasses etter ønske og kan være ganske lang. her er det forventet å liste informasjon om retten og valg for retten"',
+          prisw: '120'
+        }, {
+          rettID: '3',
+          navn: "Rettnavn",
+          besk: '"Beskrivelse av produktet kan tilpasses etter ønske og kan være ganske lang. her er det forventet å liste informasjon om retten og valg for retten"',
+          atrib: "2",
+          prisw: '140'
+        }, {
+          rettID: '4',
+          navn: '"Rettnavn"',
+          besk: '"Beskrivelse av produktet kan tilpasses etter ønske og kan være ganske lang. her er det forventet å liste informasjon om retten og valg for retten"',
+          atrib: "1",
+          prisw: '150'
+        },
+        ],
+      }, {
+        id: '12',
+        meny: [{
+          rettID: '1',
+          navn: "Annet rettnavn",
+          besk: "Beskrivelse av produktet kan tilpasses etter ønske og kan være ganske lang. her er det forventet å liste informasjon om retten og valg for retten",
+          atrib: "1",
+          prisw: '100'
+        }, {
+          rettID: '2',
+          navn: "Annet rettnavn",
+          besk: '"Beskrivelse av produktet kan tilpasses etter ønske og kan være ganske lang. her er det forventet å liste informasjon om retten og valg for retten"',
+          atrib: "2",
+          prisw: '120'
+        }, {
+          rettID: '3',
+          navn: "Annet rettnavn",
+          besk: '"Beskrivelse av produktet kan tilpasses etter ønske og kan være ganske lang. her er det forventet å liste informasjon om retten og valg for retten"',
+          atrib: "1",
+          prisw: '140'
+        }, {
+          rettID: '4',
+          navn: "Annet rettnavn",
+          besk: '"Beskrivelse av produktet kan tilpasses etter ønske og kan være ganske lang. her er det forventet å liste informasjon om retten og valg for retten"',
+          atrib: "2",
+          prisw: '150'
+        },
+        ],
+      }, {
+        id: '13',
+        meny: [{
+          rettID: '1',
+          navn: "Rettnavnet",
+          besk: "En tydelig beskrivelse gir et godt inntrykk",
+          atrib: "1",
+          prisw: '49'
+        }, {
+          rettID: '2',
+          navn: "Rett to i kategori 3",
+          besk: '"Gode råvarer gir en god smak. Inneholder, ingrediens 1. ingrediens 2. osv.   Allergener: her kan det være"',
+          prisw: '120'
+        }, {
+          rettID: '3',
+          navn: "Rett 3 ",
+          besk: '"En tydelig beskrivelse gir et godt inntrykk"',
+          atrib: "1",
+          prisw: '140'
+        }, {
+          rettID: '4',
+          navn: "Godt navn for eksempel",
+          besk: '"Gode råvarer gir en god smak. Inneholder, ingrediens 1. ingrediens 2. osv.   Allergener: her kan det være"',
+          prisw: '150'
+        },
+        ],
+      }, {
+        id: '14',
+        meny: [{
+          rettID: '1',
+          navn: "Salgsvare 1",
+          besk: "En tydelig beskrivelse gir et godt inntrykk",
+          atrib: "3",
+          prisw: '100'
+        }, {
+          rettID: '2',
+          navn: "Salgsvare 2",
+          besk: '"Gode råvarer gir en god smak. Inneholder, ingrediens 1. ingrediens 2. osv.   Allergener: her kan det være"',
+          atrib: "3",
+          prisw: '120'
+        }, {
+          rettID: '3',
+          navn: "Salgsvare 3",
+          besk: '"En tydelig beskrivelse gir et godt inntrykk"',
+          prisw: '140'
+        }, {
+          rettID: '4',
+          navn: "Salgsvare 4",
+          besk: '"Gode råvarer gir en god smak. Inneholder, ingrediens 1. ingrediens 2. osv.   Allergener: her kan det være"',
+          prisw: '150'
+        },
+        ],
+      }, {
+        id: '15',
+        meny: [{
+          rettID: '1',
+          navn: "Dette er godt",
+          besk: "En tydelig beskrivelse gir et godt inntrykk",
+          prisw: '100'
+        }, {
+          rettID: '2',
+          navn: "Dette er digg",
+          besk: '"Gode råvarer gir en god smak. Inneholder, ingrediens 1. ingrediens 2. osv.   Allergener: her kan det være"',
+          prisw: '120'
+        }, {
+          rettID: '3',
+          navn: "Rettnavn kan være sååååååå langt",
+          besk: '"En tydelig beskrivelse gir et godt inntrykk"',
+          prisw: '140'
+        }, {
+          rettID: '4',
+          navn: "Rettnavn stammer fra?",
+          besk: '"Gode råvarer gir en god smak. Inneholder, ingrediens 1. ingrediens 2. osv.   Allergener: her kan det være"',
+          prisw: '150'
+        },
+        ],
+      },{
+        id: '21',
+        meny: [{
+          rettID: '1',
+          navn: "Rettnavn",
+          besk: "Beskrivelse av produktet kan tilpasses etter ønske og kan være ganske lang. her er det forventet å liste informasjon om retten og valg for retten",
+          atrib: "0",
+          prisw: '100'
+        }, {
+          rettID: '2',
+          navn: "Rettnavn",
+          besk: '"Beskrivelse av produktet kan tilpasses etter ønske og kan være ganske lang. her er det forventet å liste informasjon om retten og valg for retten"',
+          prisw: '120'
+        }, {
+          rettID: '3',
+          navn: "Rettnavn",
+          besk: '"Beskrivelse av produktet kan tilpasses etter ønske og kan være ganske lang. her er det forventet å liste informasjon om retten og valg for retten"',
+          atrib: "2",
+          prisw: '140'
+        }, {
+          rettID: '4',
+          navn: '"Rettnavn"',
+          besk: '"Beskrivelse av produktet kan tilpasses etter ønske og kan være ganske lang. her er det forventet å liste informasjon om retten og valg for retten"',
+          atrib: "1",
+          prisw: '150'
+        },
+        ],
+      }, {
+        id: '22',
+        meny: [{
+          rettID: '1',
+          navn: "Annet rettnavn",
+          besk: "Beskrivelse av produktet kan tilpasses etter ønske og kan være ganske lang. her er det forventet å liste informasjon om retten og valg for retten",
+          atrib: "1",
+          prisw: '100'
+        }, {
+          rettID: '2',
+          navn: "Annet rettnavn",
+          besk: '"Beskrivelse av produktet kan tilpasses etter ønske og kan være ganske lang. her er det forventet å liste informasjon om retten og valg for retten"',
+          atrib: "2",
+          prisw: '120'
+        }, {
+          rettID: '3',
+          navn: "Annet rettnavn",
+          besk: '"Beskrivelse av produktet kan tilpasses etter ønske og kan være ganske lang. her er det forventet å liste informasjon om retten og valg for retten"',
+          atrib: "1",
+          prisw: '140'
+        }, {
+          rettID: '4',
+          navn: "Annet rettnavn",
+          besk: '"Beskrivelse av produktet kan tilpasses etter ønske og kan være ganske lang. her er det forventet å liste informasjon om retten og valg for retten"',
+          atrib: "2",
+          prisw: '150'
+        },
+        ],
+      }, {
+        id: '23',
+        meny: [{
+          rettID: '1',
+          navn: "Rettnavnet",
+          besk: "En tydelig beskrivelse gir et godt inntrykk",
+          atrib: "1",
+          prisw: '100'
+        }, {
+          rettID: '2',
+          navn: "Rett to i kategori 3",
+          besk: '"Gode råvarer gir en god smak. Inneholder, ingrediens 1. ingrediens 2. osv.   Allergener: her kan det være"',
+          prisw: '120'
+        }, {
+          rettID: '3',
+          navn: "Rett 3 ",
+          besk: '"En tydelig beskrivelse gir et godt inntrykk"',
+          atrib: "1",
+          prisw: '140'
+        }, {
+          rettID: '4',
+          navn: "Pizza Burger",
+          besk: '"Gode råvarer gir en god smak. Inneholder, ingrediens 1. ingrediens 2. osv.   Allergener: her kan det være"',
+          prisw: '150'
+        },
+        ],
+      }, {
+        id: '24',
+        meny: [{
+          rettID: '1',
+          navn: "Salgsvare 1",
+          besk: "En tydelig beskrivelse gir et godt inntrykk",
+          atrib: "3",
+          prisw: '100'
+        }, {
+          rettID: '2',
+          navn: "Salgsvare 2",
+          besk: '"Gode råvarer gir en god smak. Inneholder, ingrediens 1. ingrediens 2. osv.   Allergener: her kan det være"',
+          atrib: "3",
+          prisw: '120'
+        }, {
+          rettID: '3',
+          navn: "Salgsvare 3",
+          besk: '"En tydelig beskrivelse gir et godt inntrykk"',
+          prisw: '140'
+        }, {
+          rettID: '4',
+          navn: "Salgsvare 4",
+          besk: '"Gode råvarer gir en god smak. Inneholder, ingrediens 1. ingrediens 2. osv.   Allergener: her kan det være"',
+          prisw: '150'
+        },
+        ],
+      }, {
+        id: '25',
+        meny: [{
+          rettID: '1',
+          navn: "Dette er godt",
+          besk: "En tydelig beskrivelse gir et godt inntrykk",
+          prisw: '100'
+        }, {
+          rettID: '2',
+          navn: "Dette er digg",
+          besk: '"Gode råvarer gir en god smak. Inneholder, ingrediens 1. ingrediens 2. osv.   Allergener: her kan det være"',
+          prisw: '120'
+        }, {
+          rettID: '3',
+          navn: "Rettnavn kan være sååååååå langt",
+          besk: '"En tydelig beskrivelse gir et godt inntrykk"',
+          prisw: '140'
+        }, {
+          rettID: '4',
+          navn: "Rettnavn stammer fra?",
+          besk: '"Gode råvarer gir en god smak. Inneholder, ingrediens 1. ingrediens 2. osv.   Allergener: her kan det være"',
+          prisw: '150'
+        },
+        ],
+      },{
         id: '31',
         meny: [{
           rettID: '1',
@@ -104,25 +366,25 @@ function initializeFramework7(restaurants){
         id: '33',
         meny: [{
           rettID: '1',
-          navn: "BrugBurg",
-          besk: "digg burger, supergod snerr liom",
+          navn: "Rettnavnet",
+          besk: "En tydelig beskrivelse gir et godt inntrykk",
           atrib: "1",
           prisw: '100'
         }, {
           rettID: '2',
-          navn: "Basdasdg",
-          besk: '"digg burg122222222222222222222supergod snerr liom"',
+          navn: "Rett to i kategori 3",
+          besk: '"Gode råvarer gir en god smak. Inneholder, ingrediens 1. ingrediens 2. osv.   Allergener: her kan det være"',
           prisw: '120'
         }, {
           rettID: '3',
-          navn: "Bruger HEEY",
-          besk: '"digg 33333333333burger, supergod snerr liom"',
+          navn: "Rett 3 ",
+          besk: '"En tydelig beskrivelse gir et godt inntrykk"',
           atrib: "1",
           prisw: '140'
         }, {
           rettID: '4',
           navn: "Pizza Burger",
-          besk: '"di44444g burger, supergod snerr liom"',
+          besk: '"Gode råvarer gir en god smak. Inneholder, ingrediens 1. ingrediens 2. osv.   Allergener: her kan det være"',
           prisw: '150'
         },
         ],
@@ -130,25 +392,25 @@ function initializeFramework7(restaurants){
         id: '35',
         meny: [{
           rettID: '1',
-          navn: "brennevin",
-          besk: "digg burger, supergod snerr liom",
+          navn: "Salgsvare 1",
+          besk: "En tydelig beskrivelse gir et godt inntrykk",
           atrib: "3",
           prisw: '100'
         }, {
           rettID: '2',
-          navn: "konjakk",
-          besk: '"digg burg122222222222222222222supergod snerr liom"',
+          navn: "Salgsvare 2",
+          besk: '"Gode råvarer gir en god smak. Inneholder, ingrediens 1. ingrediens 2. osv.   Allergener: her kan det være"',
           atrib: "3",
           prisw: '120'
         }, {
           rettID: '3',
-          navn: "vodka",
-          besk: '"digg 33333333333burger, supergod snerr liom"',
+          navn: "Salgsvare 3",
+          besk: '"En tydelig beskrivelse gir et godt inntrykk"',
           prisw: '140'
         }, {
           rettID: '4',
-          navn: "liquer",
-          besk: '"di44444g burger, supergod snerr liom"',
+          navn: "Salgsvare 4",
+          besk: '"Gode råvarer gir en god smak. Inneholder, ingrediens 1. ingrediens 2. osv.   Allergener: her kan det være"',
           prisw: '150'
         },
         ],
@@ -156,23 +418,23 @@ function initializeFramework7(restaurants){
         id: '34',
         meny: [{
           rettID: '1',
-          navn: "Brug2Burg",
-          besk: "digg burger, supergod snerr liom",
+          navn: "Dette er godt",
+          besk: "En tydelig beskrivelse gir et godt inntrykk",
           prisw: '100'
         }, {
           rettID: '2',
-          navn: "Basda2sdg",
-          besk: '"digg burg122222222222222222222supergod snerr liom"',
+          navn: "Dette er digg",
+          besk: '"Gode råvarer gir en god smak. Inneholder, ingrediens 1. ingrediens 2. osv.   Allergener: her kan det være"',
           prisw: '120'
         }, {
           rettID: '3',
-          navn: "Bruger222 HEEY",
-          besk: '"digg 33333333333burger, supergod snerr liom"',
+          navn: "Rettnavn kan være sååååååå langt",
+          besk: '"En tydelig beskrivelse gir et godt inntrykk"',
           prisw: '140'
         }, {
           rettID: '4',
-          navn: "Pizza22222 Burger",
-          besk: '"di44444g burger, supergod snerr liom"',
+          navn: "Rettnavn stammer fra?",
+          besk: '"Gode råvarer gir en god smak. Inneholder, ingrediens 1. ingrediens 2. osv.   Allergener: her kan det være"',
           prisw: '150'
         },
         ],
@@ -180,23 +442,23 @@ function initializeFramework7(restaurants){
         id: '41',
         meny: [{
           rettID: '1',
-          navn: "leverpostei",
-          besk: "digg burger, supergod snerr liom",
+          navn: "Rettnavnet stammer fra?",
+          besk: "En tydelig beskrivelse gir et godt inntrykk",
           prisw: '100'
         }, {
           rettID: '2',
-          navn: "ostepopp",
-          besk: '"digg burg122222222222222222222supergod snerr liom"',
+          navn: "Rettnavn",
+          besk: '"Gode råvarer gir en god smak. Inneholder, ingrediens 1. ingrediens 2. osv.   Allergener: her kan det være"',
           prisw: '120'
         }, {
           rettID: '3',
-          navn: "grønsaker",
-          besk: '"digg 33333333333burger, supergod snerr liom"',
+          navn: "Rettnavn",
+          besk: '"En tydelig beskrivelse gir et godt inntrykk"',
           prisw: '140'
         }, {
           rettID: '4',
-          navn: '"føtter"',
-          besk: '"di44444g burger, supergod snerr liom"',
+          navn: '"Rettnavn"',
+          besk: '"Gode råvarer gir en god smak. Inneholder, ingrediens 1. ingrediens 2. osv.   Allergener: her kan det være"',
           prisw: '150'
         },
         ],
@@ -204,23 +466,23 @@ function initializeFramework7(restaurants){
         id: '42',
         meny: [{
           rettID: '1',
-          navn: "Pizzarg",
-          besk: "digg burger, supergod snerr liom",
+          navn: "Rettnavn",
+          besk: "En tydelig beskrivelse gir et godt inntrykk",
           prisw: '100'
         }, {
           rettID: '2',
-          navn: "Pinabble",
-          besk: '"digg burg122222222222222222222supergod snerr liom"',
+          navn: "Rettnavn",
+          besk: '"Gode råvarer gir en god smak. Inneholder, ingrediens 1. ingrediens 2. osv.   Allergener: her kan det være"',
           prisw: '120'
         }, {
           rettID: '3',
-          navn: "sjoritsto",
-          besk: '"digg 33333333333burger, supergod snerr liom"',
+          navn: "Rettnavn",
+          besk: '"En tydelig beskrivelse gir et godt inntrykk"',
           prisw: '140'
         }, {
           rettID: '4',
-          navn: "oppkuttet vegetarianer",
-          besk: '"di44444g burger, supergod snerr liom"',
+          navn: "Rettnavn",
+          besk: '"Gode råvarer gir en god smak. Inneholder, ingrediens 1. ingrediens 2. osv.   Allergener: her kan det være"',
           prisw: '150'
         },
         ],
@@ -228,23 +490,23 @@ function initializeFramework7(restaurants){
         id: '43',
         meny: [{
           rettID: '1',
-          navn: "BrugBurg",
-          besk: "digg burger, supergod snerr liom",
+          navn: "Rettnavnet",
+          besk: "En tydelig beskrivelse gir et godt inntrykk",
           prisw: '100'
         }, {
           rettID: '2',
-          navn: "Basdasdg",
-          besk: '"digg burg122222222222222222222supergod snerr liom"',
+          navn: "Rett to i kategori 3",
+          besk: '"Gode råvarer gir en god smak. Inneholder, ingrediens 1. ingrediens 2. osv.   Allergener: her kan det være"',
           prisw: '120'
         }, {
           rettID: '3',
-          navn: "Bruger HEEY",
-          besk: '"digg 33333333333burger, supergod snerr liom"',
+          navn: "Rett 3 ",
+          besk: '"En tydelig beskrivelse gir et godt inntrykk"',
           prisw: '140'
         }, {
           rettID: '4',
           navn: "Pizza Burger",
-          besk: '"di44444g burger, supergod snerr liom"',
+          besk: '"Gode råvarer gir en god smak. Inneholder, ingrediens 1. ingrediens 2. osv.   Allergener: her kan det være"',
           prisw: '150'
         },
         ],
@@ -252,23 +514,23 @@ function initializeFramework7(restaurants){
         id: '44',
         meny: [{
           rettID: '1',
-          navn: "br33ennevin",
-          besk: "digg burger, supergod snerr liom",
+          navn: "Rettnavn",
+          besk: "En tydelig beskrivelse gir et godt inntrykk",
           prisw: '100'
         }, {
           rettID: '2',
-          navn: "kon33jakk",
-          besk: '"digg burg122222222222222222222supergod snerr liom"',
+          navn: "Rettnavnet beskriver litt",
+          besk: '"Gode råvarer gir en god smak. Inneholder, ingrediens 1. ingrediens 2. osv.   Allergener: her kan det være"',
           prisw: '120'
         }, {
           rettID: '3',
-          navn: "vod33ka",
-          besk: '"digg 33333333333burger, supergod snerr liom"',
+          navn: "Fylltekst for rett",
+          besk: '"En tydelig beskrivelse gir et godt inntrykk"',
           prisw: '140'
         }, {
           rettID: '4',
-          navn: "lique33r",
-          besk: '"di44444g burger, supergod snerr liom"',
+          navn: "Fylltekst for rett @freedom",
+          besk: '"Gode råvarer gir en god smak. Inneholder, ingrediens 1. ingrediens 2. osv.   Allergener: her kan det være"',
           prisw: '150'
         },
         ],
@@ -283,19 +545,19 @@ function initializeFramework7(restaurants){
         }, {
           rettID: '2',
           navn: "Kebab i pita",
-          besk: '"digg basdasdiom"',
+          besk: '"God smak" - det er mange måter å beskrive et produkt. men det er viktig å få med En tydelig beskrivelse gir et godt inntrykk og Inneholder: ingrediens 1. ingrediens 2. osv.   Allergener: her kan det være"',
           atrib: "1",
           prisw: '120'
         }, {
           rettID: '3',
-          navn: "grønsaker",
-          besk: '"digg 33333333333burger, supergod snerr liom"',
+          navn: "Rettnavn",
+          besk: '"En tydelig beskrivelse gir et godt inntrykk"',
           atrib: "1",
           prisw: '140'
         }, {
           rettID: '4',
-          navn: '"føtter"',
-          besk: '"di44444g burger, supergod snerr liom"',
+          navn: '"Rettnavn"',
+          besk: '"Gode råvarer gir en god smak. Inneholder, ingrediens 1. ingrediens 2. osv.   Allergener: her kan det være"',
           atrib: "1",
           prisw: '150'
         },
@@ -304,23 +566,23 @@ function initializeFramework7(restaurants){
         id: '52',
         meny: [{
           rettID: '1',
-          navn: "Pizzarg",
-          besk: "digg burger, supergod snerr liom",
+          navn: "Rettnavn",
+          besk: "En tydelig beskrivelse gir et godt inntrykk",
           prisw: '100'
         }, {
           rettID: '2',
-          navn: "Pinabble",
-          besk: '"digg burg122222222222222222222supergod snerr liom"',
+          navn: "Rettnavn",
+          besk: '"Gode råvarer gir en god smak. Inneholder, ingrediens 1. ingrediens 2. osv.   Allergener: her kan det være"',
           prisw: '120'
         }, {
           rettID: '3',
-          navn: "sjoritsto",
-          besk: '"digg 33333333333burger, supergod snerr liom"',
+          navn: "Rettnavn",
+          besk: '"En tydelig beskrivelse gir et godt inntrykk"',
           prisw: '140'
         }, {
           rettID: '4',
-          navn: "oppkuttet vegetarianer",
-          besk: '"di44444g burger, supergod snerr liom"',
+          navn: "Rettnavn",
+          besk: '"Gode råvarer gir en god smak. Inneholder, ingrediens 1. ingrediens 2. osv.   Allergener: her kan det være"',
           prisw: '150'
         },
         ],
@@ -328,23 +590,23 @@ function initializeFramework7(restaurants){
         id: '53',
         meny: [{
           rettID: '1',
-          navn: "BrugBurg",
-          besk: "digg burger, supergod snerr liom",
+          navn: "Rettnavnet",
+          besk: "En tydelig beskrivelse gir et godt inntrykk",
           prisw: '100'
         }, {
           rettID: '2',
-          navn: "Basdasdg",
-          besk: '"digg burg122222222222222222222supergod snerr liom"',
+          navn: "Rett to i kategori 3",
+          besk: '"Gode råvarer gir en god smak. Inneholder, ingrediens 1. ingrediens 2. osv.   Allergener: her kan det være"',
           prisw: '120'
         }, {
           rettID: '3',
-          navn: "Bruger HEEY",
-          besk: '"digg 33333333333burger, supergod snerr liom"',
+          navn: "Rett 3 ",
+          besk: '"En tydelig beskrivelse gir et godt inntrykk"',
           prisw: '140'
         }, {
           rettID: '4',
           navn: "Pizza Burger",
-          besk: '"di44444g burger, supergod snerr liom"',
+          besk: '"Gode råvarer gir en god smak. Inneholder, ingrediens 1. ingrediens 2. osv.   Allergener: her kan det være"',
           prisw: '150'
         },
         ],
@@ -352,23 +614,23 @@ function initializeFramework7(restaurants){
         id: '54',
         meny: [{
           rettID: '1',
-          navn: "br33ennevin",
-          besk: "digg burger, supergod snerr liom",
+          navn: "Rettnavn",
+          besk: "En tydelig beskrivelse gir et godt inntrykk",
           prisw: '100'
         }, {
           rettID: '2',
-          navn: "kon33jakk",
-          besk: '"digg burg122222222222222222222supergod snerr liom"',
+          navn: "Rettnavnet beskriver litt",
+          besk: '"Gode råvarer gir en god smak. Inneholder, ingrediens 1. ingrediens 2. osv.   Allergener: her kan det være"',
           prisw: '120'
         }, {
           rettID: '3',
-          navn: "vod33ka",
-          besk: '"digg 33333333333burger, supergod snerr liom"',
+          navn: "Fylltekst for rett",
+          besk: '"En tydelig beskrivelse gir et godt inntrykk"',
           prisw: '140'
         }, {
           rettID: '4',
-          navn: "lique33r",
-          besk: '"di44444g burger, supergod snerr liom"',
+          navn: "Fylltekst for rett @freedom",
+          besk: '"Gode råvarer gir en god smak. Inneholder, ingrediens 1. ingrediens 2. osv.   Allergener: her kan det være"',
           prisw: '150'
         },
         ],
@@ -376,23 +638,23 @@ function initializeFramework7(restaurants){
         id: '55',
         meny: [{
           rettID: '1',
-          navn: "br33ennevin",
-          besk: "digg burger, supergod snerr liom",
+          navn: "Rettnavn",
+          besk: "En tydelig beskrivelse gir et godt inntrykk",
           prisw: '100'
         }, {
           rettID: '2',
-          navn: "kon33jakk",
-          besk: '"digg burg122222222222222222222supergod snerr liom"',
+          navn: "Rettnavnet beskriver litt",
+          besk: '"Gode råvarer gir en god smak. Inneholder, ingrediens 1. ingrediens 2. osv.   Allergener: her kan det være"',
           prisw: '120'
         }, {
           rettID: '3',
-          navn: "vod33ka",
-          besk: '"digg 33333333333burger, supergod snerr liom"',
+          navn: "Fylltekst for rett",
+          besk: '"En tydelig beskrivelse gir et godt inntrykk"',
           prisw: '140'
         }, {
           rettID: '4',
-          navn: "lique33r",
-          besk: '"di44444g burger, supergod snerr liom"',
+          navn: "Fylltekst for rett @freedom",
+          besk: '"Gode råvarer gir en god smak. Inneholder, ingrediens 1. ingrediens 2. osv.   Allergener: her kan det være"',
           prisw: '150'
         },
         ],
@@ -428,19 +690,65 @@ function initializeFramework7(restaurants){
           id: '1',
           title: 'Burger Hub (demo) ',
           img: '/static/dmoimg/burgerhub1.png',
-          description: 'Grimstad A yeah thats a sted.',
-          shortdescription: 'Grimstad A yeah thats a sted.',
+          description: 'Her kan det være en lang beskrivelse av bedriften. Velit odit autem modi saepe ratione totam minus, aperiam, labore quia provident temporibus quasi est ut aliquid blanditiis beatae suscipit odio vel! Nostrum porro sunt sint eveniet maiores, dolorem itaque!Grimstad A yeah thats a sted.',
+          shortdescription: 'En kort beskrivelse av bedriften',
           restkategori:'Burger',
-          adresse: 'Sentrum 4 48179'
+          adresse: 'Sentrum 4 48179',
+          categorier: [{
+            catid: '21',
+            catnavn: "Hamburger",
+
+          },
+          {
+            catnavn: "Kategorinavn 1 ",
+            catid: '22',
+
+          },
+          {
+            catnavn: "Katekorinavn 2",
+            catid: '23',
+          },
+          {
+            catnavn: "Katekorinavn 3",
+            catid: '24',
+          },
+          {
+            catnavn: "Katekorinavn 4",
+            catid: '25',
+          }
+          ]
         },
         {
           id: '2',
           title: 'Happytime Cafe (demo)',
           img: '/static/dmoimg/happytimecafe1.png',
-          description: 'Velit odit autem modi saepe ratione totam minus, aperiam, labore quia provident temporibus quasi est ut aliquid blanditiis beatae suscipit odio vel! Nostrum porro sunt sint eveniet maiores, dolorem itaque!',
-          shortdescription: 'Grimstad  you seeA yeah thats a sted.',
+          description: 'Her kan det være en lang beskrivelse av bedriften. Velit odit autem modi saepe ratione totam minus, aperiam, labore quia provident temporibus quasi est ut aliquid blanditiis beatae suscipit odio vel! Nostrum porro sunt sint eveniet maiores, dolorem itaque!',
+          shortdescription: 'En kort beskrivelse av bedriften .',
               restkategori:'Pizza',
-          adresse: 'Sentrum 4 48179'
+          adresse: 'Sentrum 4 48179',
+          categorier: [{
+            catid: '21',
+            catnavn: "Pizza",
+
+          },
+          {
+            catnavn: "Kategorinavn 1 ",
+            catid: '22',
+
+          },
+          {
+            catnavn: "Katekorinavn 2",
+            catid: '23',
+          },
+          {
+            catnavn: "Katekorinavn 3",
+            catid: '24',
+          },
+          {
+            catnavn: "Katekorinavn 4",
+            catid: '25',
+          }
+          ]
         },
         {
           id: '3',
@@ -452,24 +760,24 @@ function initializeFramework7(restaurants){
           shortdescription: 'Gradd maxleght to this field',
           categorier: [{
             catid: '31',
-            catnavn: "Sushy",
+            catnavn: "Sushi",
 
           },
           {
-            catnavn: "Whoak",
+            catnavn: "Kategorinavn 1 ",
             catid: '32',
 
           },
           {
-            catnavn: "SpringRoll",
+            catnavn: "Katekorinavn 2",
             catid: '33',
           },
           {
-            catnavn: "Take away desserts",
+            catnavn: "Katekorinavn 3",
             catid: '34',
           },
           {
-            catnavn: "Drink and dirty",
+            catnavn: "Katekorinavn 4",
             catid: '35',
           }
           ]
