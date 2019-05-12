@@ -176,6 +176,11 @@ overflow: visible;
   background-position: center;
   color: #fff;
 }
+
+.GG{
+  object-fit: fill;
+}
+
 .demo-card-header-pic .card-content-padding .date{
   color: #8e8e93;
 }
