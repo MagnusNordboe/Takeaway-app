@@ -1,58 +1,60 @@
 <template>
-  <div class="page" data-name="rTester">
-    <div class="navbar ">
-        <div class="navbar-inner">
-          <div class="left">
-            <a href="#" class="link back">
-              <i class="icon icon-back"></i>
-              <span class="ios-only">Back</span>
-            </a>
-          </div>
-          <div class="title sliding ourthemeB">Lokale resturanter</div>
-  
-          <div class="title-large ourthemeB">
-            <div class="title-large-text"><a href="#">Grimstad</a>/<a href="#">Take out</a><a href="#" id="atoch"></a></div>
-          </div>
+<div class="page" data-name="rTester">
+  <div class="navbar ">
+      <div class="navbar-inner">
+        <div class="left">
+          <a href="#" class="link back">
+            <i class="icon icon-back"></i>
+            <span class="ios-only">Back</span>
+          </a>
+        </div>
+        <div class="title sliding ourthemeB">Lokale resturanter</div>
+
+        <div class="title-large ourthemeB">
+          <div class="title-large-text"><a href="#">Grimstad</a>/<a href="#">Take out</a><a href="#" id="atoch"></a></div>
         </div>
       </div>
-    <div class="page-content ourthemeB">
-  
-          <div class="list media-list ourthemeB">
-          <ul class="ourthemeB">
-  
-            {{#each resturants}}
-            <div class="card demo-card-header-pic">
-    <div style="background-image:url({{img}})" class="card-header align-items-flex-end"></div>
-    <div class="card-content card-content-padding accordion-item">
-      <div class="accordion-item-toggle">
-      <p class="RLH">{{title}}</p>
-      <p class="RLA">{{adresse}}</p>
     </div>
-           <div class="accordion-item-content">
-             <div class="block">
-               <p>{{shortdescription}}<p>
-             </div>
+  <div class="page-content ourthemeB">
+
+        <div class="list media-list ourthemeB">
+        <ul class="ourthemeB">
+
+          {{#each resturants}}
+          <div class="card demo-card-header-pic">
+  <div style="background-image:url({{img}})" class="card-header align-items-flex-end"></div>
+  <div class="card-content card-content-padding accordion-item">
+    <div class="accordion-item-toggle">
+    <p class="RLH">{{title}}</p>
+    <p class="RLA">{{adresse}}</p>
+  </div>
+         <div class="accordion-item-content">
+           <div class="block">
+             <p>{{shortdescription}}<p>
            </div>
-    </div>
-    <div  class="card-footer"><a href="/resturantcatalog/{{id}}/" class="button"><center>Meny</center></a></div>
+         </div>
   </div>
-  
-      {{/each}}
-          </ul>
-        </div>
-      <div class="block">
-        <div id="myFrame" src="/about/"></div>
+  <div  class="card-footer"><a href="/resturantcatalog/{{id}}/" class="button"><center>Meny</center></a></div>
+</div>
+
+    {{/each}}
+        </ul>
       </div>
+    <div class="block">
+      <div id="myFrame" src="/about/"></div>
     </div>
-  
   </div>
-  </template>
-  <script>
-    export default {
-      data: function () {
-        return {
-          resturants: this.$root.resturants,
-        };
-      }
-    };
-  </script>
+
+</div>
+</template>
+<script>
+  export default {
+    data: function () {
+      return {
+        resturants: this.$root.resturants,
+      };
+    }
+  };
+
+
+</script>

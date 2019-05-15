@@ -1,126 +1,131 @@
 <template>
-  <div class="page" data-name="rTester">
-    <div class="navbar">
-        <div class="navbar-inner ourthemeB">
-  
-          <div id="oursmallhead" class="title sliding ourthemeB"><a class="textcolloring" href="/">Grimstad</a> / <a href="#"  class="textcolloring popup-open" onclick="bbt()" data-popup=".popup-chocat">Take out</a><a  class="textcolloring"  href="#" id="atoch"></a></div>
-  
-  
-        </div>
+<div class="page" data-name="rTester">
+  <div class="navbar">
+      <div class="navbar-inner ourthemeB">
+
+        <div id="oursmallhead" class="title sliding ourthemeB"><a class="textcolloring" href="/">Grimstad</a> / <a href="#"  class="textcolloring popup-open" onclick="bbt()" data-popup=".popup-chocat">Take out</a><a  class="textcolloring"  href="#" id="atoch"></a></div>
+
+
       </div>
-    <div class="page-content ourthemeB">
-  
-          <div class="list media-list ourthemeB">
-          <div class="ourthemeB">
-  
-            {{#each resturants}}
-            <div class="restu {{restkategori}} card demo-card-header-pic">
-          <a href="/resturantcatalog_old/{{id}}/" class="textcolloring">
-  
-  
-    <div style="background-image:url({{img}})" class="card-header align-items-flex-end"></div>
-    <div class="card-content card-content-padding accordion-item">
-      <div class="">
-      <p class="RLH">{{title}}</p>
-      <p class="RLA">{{adresse}}</p>
     </div>
-           <div class="accordion-item-content">
-             <div class="block">
-               <p>{{shortdescription}}<p>
-             </div>
+  <div class="page-content ourthemeB">
+
+        <div class="list media-list ourthemeB">
+        <div class="ourthemeB">
+
+          {{#each resturants}}
+          <div class="restu {{restkategori}} card demo-card-header-pic">
+        <a href="/resturantcatalog_old/{{id}}/" class="textcolloring">
+
+
+  <div style="background-image:url({{img}})" class="card-header align-items-flex-end"></div>
+  <div class="card-content card-content-padding accordion-item">
+    <div class="">
+    <p class="RLH">{{title}}</p>
+    <p class="RLA">{{adresse}}</p>
+  </div>
+         <div class="accordion-item-content">
+           <div class="block">
+             <p>{{shortdescription}}<p>
            </div>
-  
-      </a>
-    <div  class="card-footer"><a class="button accordion-item-toggle"><center>Mer</center></a></div>
-    </div>
+         </div>
+
+    </a>
+  <div  class="card-footer"><a class="button accordion-item-toggle"><center>Mer</center></a></div>
   </div>
-      {{/each}}
-          </div>
+</div>
+    {{/each}}
         </div>
-      <div class="block">
-        <div id="myFrame" src="/about/"></div>
       </div>
-  
-      <div class="rTest">heey i placed here</div>
-  
-  <div class="popup popup-chocat ">
-    <div class="block ourthemeB">
-  
-      <!-- Close Popup -->
-      <p >Take out kategorier<a class="link popup-close rightB" href="#">X Steng</a></p>
-      <div id="katter" class="ourthemeB">
-  
-  
-      </div>
+    <div class="block">
+      <div id="myFrame" src="/about/"></div>
+    </div>
+
+    <div class="rTest">heey i placed here</div>
+
+<div class="popup popup-chocat ">
+  <div class="block ourthemeB">
+
+    <!-- Close Popup -->
+    <p >Take out kategorier<a class="link popup-close rightB" href="#">X Steng</a></p>
+    <div id="katter" class="ourthemeB">
+
+
     </div>
   </div>
-  <script type="text/javascript">
-  //ourhead.addEventListener("change", doME);
-  function doME(){
-  console.log("chanhger");
-    document.getElementById(oursmallhead).innerHTML=document.getElementById(ourhead).innerHTML;};
-  function bbt(hey){
-      document.getElementById("katter").innerHTML = "";
-  console.log(hey);
-  console.log("logger");
-  let heey = {{muligekatter}};
-  let availablecats = eval(heey);
-  console.log(`{{muligekatter}}`);
-  console.log(availablecats[1]);
-  console.log(availablecats);
-  console.log(heey[1]);
-  console.log(eval(heey));
-  availablecats.forEach(pintkatt)
-  }
-  function pintkatt(index, item){
-    console.log(item);
-    console.log(index);
-    let divv= document.createElement("div");
-    divv.innerHTML = `<a onclick="pickcat('${index}')" class="link popup-close">${index}</a>`;
-      document.getElementById("katter").appendChild(divv);
-  }
-  function pickcat(picked){
-    if(picked=="Alle"){
-        document.getElementById("atoch").innerHTML= ``;
-        var z = document.getElementsByClassName("restu");
-      var p;
-      for (p = 0; p < z.length; p++) {
-        z[p].style.display = "block";
-      }
-        return;
+</div>
+<script type="text/javascript">
+//ourhead.addEventListener("change", doME);
+function doME(){
+console.log("chanhger");
+  document.getElementById(oursmallhead).innerHTML=document.getElementById(ourhead).innerHTML;};
+function bbt(hey){
+    document.getElementById("katter").innerHTML = "";
+console.log(hey);
+console.log("logger");
+let heey = {{muligekatter}};
+let availablecats = eval(heey);
+
+console.log(`{{muligekatter}}`);
+console.log(availablecats[1]);
+console.log(availablecats);
+console.log(heey[1]);
+console.log(eval(heey));
+
+availablecats.forEach(pintkatt)
+}
+function pintkatt(index, item){
+  console.log(item);
+  console.log(index);
+  let divv= document.createElement("div");
+  divv.innerHTML = `<a onclick="pickcat('${index}')" class="link popup-close">${index}</a>`;
+    document.getElementById("katter").appendChild(divv);
+}
+function pickcat(picked){
+  if(picked=="Alle"){
+      document.getElementById("atoch").innerHTML= ``;
+      var z = document.getElementsByClassName("restu");
+    var p;
+    for (p = 0; p < z.length; p++) {
+      z[p].style.display = "block";
     }
-    else{
-    document.getElementById("atoch").innerHTML= ``;
-      var x = document.getElementsByClassName("restu");
-  var i;
-  for (i = 0; i < x.length; i++) {
-    x[i].style.display = "none";
+      return;
   }
-  /*  let elementss =  document.getElementsByClassName("restu");
-    elementss.forEach(hider);
-    console.log(picked);
-    document.getElementsByClassName(picked).classList.remove("showme");*/
-    var y = document.getElementsByClassName(picked);
-  var o;
-  for (o = 0; o < y.length; o++) {
-    y[o].style.display = "block";
-  }
-  document.getElementById("atoch").innerHTML= ` / ${picked}`;
-  }}
-  function hider(index, item) {
-    index.classList.add("showme");
-    console.log(index);
-  }
-  </script>
-  </div>
-  </template>
-  <script>
-    export default {
-      data: function () {
-        return {
-          resturants: this.$root.resturants,
-          muligekatter: this.$root.muligekategorier,
-        };
-      }
-    };
-  </script>
+  else{
+  document.getElementById("atoch").innerHTML= ``;
+    var x = document.getElementsByClassName("restu");
+var i;
+for (i = 0; i < x.length; i++) {
+  x[i].style.display = "none";
+}
+/*  let elementss =  document.getElementsByClassName("restu");
+  elementss.forEach(hider);
+  console.log(picked);
+  document.getElementsByClassName(picked).classList.remove("showme");*/
+  var y = document.getElementsByClassName(picked);
+var o;
+for (o = 0; o < y.length; o++) {
+  y[o].style.display = "block";
+}
+document.getElementById("atoch").innerHTML= ` / ${picked}`;
+}}
+function hider(index, item) {
+  index.classList.add("showme");
+  console.log(index);
+}
+
+</script>
+</div>
+</template>
+<script>
+  export default {
+    data: function () {
+      return {
+        resturants: this.$root.resturants,
+        muligekatter: this.$root.muligekategorier,
+      };
+    }
+  };
+
+
+</script>

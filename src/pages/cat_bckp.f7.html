@@ -55,12 +55,10 @@
     //  alert('here am i');
 //  document.onload=luckyS();
 //console.log(aktivKatt);
-<<<<<<< HEAD
-=======
 
->>>>>>> 6588b66d7b97b6c14748a49e54e7b171f5c4e2f0
 doheaders(catname,restname,loremips);
 console.log(cat);
+
 function doheaders(a,b,c){
   document.getElementById("myheader").innerHTML =a;
   document.getElementById("toph3ader").innerHTML = b;
@@ -74,6 +72,7 @@ restname=bb;
   console.log(bb);
   console.log("Did navheader name");
 }
+
   function luckyS (aa){
     catname = aa;
 //document.getElementById("myheader").innerHTML = aa;
@@ -85,12 +84,14 @@ setTimeout(waitbit, 500);
 function waitbit(){
   console.log(catname);
 //document.getElementById("myheader").innerHTML =catname;
+
 }
   // console.log(eval("orderlist"+activeResturant));
    if (activeResturant){
 amountInOrder();
    }
 function amountInOrder(){
+
   var x = document.getElementsByClassName("thisclass");
 var i;
 for (i = 0; i < x.length; i++) {
@@ -101,6 +102,8 @@ for (i = 0; i < x.length; i++) {
      console.log(eval(thevar));
      let myPicks = eval(thevar);
  myPicks.forEach(fillList);
+
+
 }
    function fillList(list){
      console.log(list[1]);
@@ -119,9 +122,11 @@ document.getElementById(eval(`"bi${list[1]}"`)).innerHTML= " Antall i bestilling
 }
 //document.getElementById(eval(`"bi${list[1]}"`)).classList.remove(hide);
    }
+
 //console.log({{cat[0]}});
 //var orderlist= [];
 var ord3rlist{{hat}}= "the super var is here";
+
 function createshortsum(){
   console.log("creating short sum");
     document.getElementById("ordersumshort").innerHTML="";
@@ -159,7 +164,13 @@ if (atrib===1){
   console.log("ingen attrib");
           let theatribs = `_`;
 }
-  
+
+
+      //  let stregth1 = document.getElementById('att1'+info).checked;
+  //      if (stregth1===true){
+  //      let stregth = document.querySelector('input[id="att1'+info+'"]:checked').value;
+        console.log("if 01 ???");
+
         let verdia = document.getElementById('K'+info).value;
         let bTekst = document.getElementById('T'+info).value;
         let bTitle = document.getElementById('title'+info).innerHTML;
@@ -192,7 +203,7 @@ console.log(eval(thevar));
       amountInOrder();
       document.getElementById('K'+info).value = 1;
       document.getElementById('T'+info).value = "";
-    //  document.getElementById('att1'+info).checked = false;
+      document.getElementById('att1'+info).checked = false;
       document.getElementById('styrk'+info).checked = true;
       }
     </script>
@@ -216,6 +227,7 @@ console.log(eval(thevar));
       };
     }
   };
+
   /* import * as javacode from '../js/online.js';
   export default {
     data: function () {
@@ -225,6 +237,7 @@ console.log(eval(thevar));
       };
     }
   };
+
   export default {
     data: function () {
       var Id = this.$route.params.id;
@@ -239,4 +252,5 @@ console.log(eval(thevar));
       };
     }
   };*/
+
 </script>
